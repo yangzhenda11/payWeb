@@ -1,0 +1,44 @@
+<div id="payChannelListContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">支付通道列表</a>
+			</div>
+			<button class="btn btn-primary hidden" id="addbtn" onclick="goPayChannelAdd()">+&nbsp;添加通道</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">			
+        	<label class="hidden searchText" id="customer_name" for="customer_input">服务商名称</label><input id="customer_input" class="special hidden" name="customer_input" type="text">
+            <label class="searchText" for="channelName">支付通道名称</label><input id="channelName" class="special" name="description" type="text">
+            <label class="searchText" for="channelType">类型</label>
+            <select id="channelType" class="specialselect" name="channelType" style='width: 80px;'>
+                <option value="">全部</option>
+                <option value="1">普通通道</option>
+                <option value="2">定额通道</option>
+            </select>
+            <button class="searchBtn" id="querybtn" onclick="getPayChannelList(1);">查询</button> 
+        </div>
+		<div class="col-sm-12">
+			<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+    		<div class="panel panel-default panel-primary">
+        		<table class="table alignCenter" id="deviceconfigTable">
+               		<thead>
+                    	<tr class="thStyle">
+                            <th class="col-sm-2" style="padding-left: 20px;">支付通道名称</th>
+                            <th class="col-sm-3">服务商名称</th>
+                            <th class="col-sm-1">超时时间(s)</th>
+                            <th class="col-sm-1">类型</th>
+                            <th class="col-sm-1">定额(元)</th>
+                            <th class="col-sm-2" style="text-align: center;">操作</th>
+               			</tr>
+                	</thead>
+                    <tbody class="trStyle"></tbody>
+        		</table>           		
+   			</div>
+    		<div class="alignCenter">
+        		<div id="pagination" class="pagination"></div>
+    		</div>
+		</div>
+	</div>	
+</div>

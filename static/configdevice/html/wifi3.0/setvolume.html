@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>音量设置</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="../../css/weui.css" />
+		<link rel="stylesheet" href="../../css/example.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script src="../../js/qrcode.js"></script>
+		<script src="../../js/jquery.qrcode.js"></script>
+		<style type="text/css">
+			input[type="range"] {
+				-webkit-box-shadow: 0 1px 0 0px #424242, 0 1px 0 #060607 inset, 0px 2px 10px 0px #77b640 inset, 1px 0px 2px rgba(0, 0.5, 0, 0.4) inset, 0 0px 1px rgba(0, 0, 0, 0.6) inset;
+				background-color: #60b81c;
+				border-radius: 15px;
+				-webkit-appearance: none;
+				height: 10px;
+			}
+			
+			input[type="range"]::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				cursor: default;
+				top: -5px;
+				height: 20px;
+				width: 20px;
+				background: none repeat scroll 0 0 #60b81c;
+				border-radius: 20px;
+				-webkit-box-shadow: 0 -1px 1px #039702 inset;
+			}
+			
+			body {
+				margin: 0;
+				width: auto;
+				align-content: center;
+				height: auto;
+				text-align: center;
+			}
+			
+			.right-top {
+				width: 40px;
+				height: 40px;
+				position: fixed;
+				/*这是必须的*/
+				z-index: 999;
+				left: 5px;
+				/*这是必须的*/
+				top: 2px;
+				/*这是必须的*/
+				background: url(img/goback.png);
+			}
+		</style>
+		<script type="text/javascript">
+			$(function() {
+				jQuery('#qrcode').qrcode({
+					width: 200, //宽度
+					height: 200, //高度
+					text: "InspiryVolume:10"
+				})
+			});
+
+			function change() {
+				var value = document.getElementById('range').value;
+				document.getElementById('rangevalue').innerHTML = value;
+				if($("canvas")) {
+					$("canvas").remove();
+				}
+				jQuery('#qrcode').qrcode({
+					width: 200, //宽度
+					height: 200, //高度
+					text: "InspiryVolume:" + value / 5
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="title" style="line-height: 48px;width: 100%;height: 48px;background: #60b81c;color: #FFFFFF;text-align: center;overflow: hidden;	position: fixed; z-index:100;">
+			音量设置
+		</div>
+		<div class="right-top" onclick="javascript :history.back(-1);" style="display:none;"></div>
+		<div id="qrcode" style="padding-top: 90px; padding-bottom: 40px;"></div>
+		<th style="width:240px; height:110px;" rowspan="2">
+			<span>音量</span>
+			<input type="range" id="range" name="points" value="10" min="0" max="100" onchange="change()" />
+			<span id="rangevalue">10</span>
+		</th>
+
+	</body>
+
+</html>

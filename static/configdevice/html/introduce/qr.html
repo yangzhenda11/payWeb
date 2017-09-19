@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>QR码</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script src="../../js/qrcode.js"></script>
+		<script src="../../js/jquery.qrcode.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var vars = [],
+					hash;
+				var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+				for(var i = 0; i < hashes.length; i++) {
+					hash = hashes[i].split('=');
+					vars.push(hash[0]);
+					vars[hash[0]] = hash[1];
+				}
+				if(vars == "InspirySet:ToSet") {
+					document.getElementById('title').innerHTML = "设置";
+				} else if(vars == "InspirySet:ToNormal") {
+					document.getElementById('title').innerHTML = "保存设置";
+				} else if(vars == "InspirySet:ToReboot") {
+					document.getElementById('title').innerHTML = "重启设备";
+				} else if(vars == "InspirySet:CableStyle0") {
+					document.getElementById('title').innerHTML = "输出模式：USB模式";
+				} else if(vars == "InspirySet:CableStyle1") {
+					document.getElementById('title').innerHTML = "输出模式：串口模式";
+				} else if(vars == "InspirySet:Baudrate4800") {
+					document.getElementById('title').innerHTML = "波特率：4800";
+				} else if(vars == "InspirySet:Baudrate9600") {
+					document.getElementById('title').innerHTML = "波特率：9600";
+				} else if(vars == "InspirySet:Baudrate19200") {
+					document.getElementById('title').innerHTML = "波特率：19200";
+				} else if(vars == "InspirySet:Baudrate57600") {
+					document.getElementById('title').innerHTML = "波特率：57600";
+				} else if(vars == "InspirySet:Baudrate115200") {
+					document.getElementById('title').innerHTML = "波特率：115200";
+				} else if(vars == "InspirySet:ComBit5") {
+					document.getElementById('title').innerHTML = "数据位：比特数=5";
+				} else if(vars == "InspirySet:ComBit6") {
+					document.getElementById('title').innerHTML = "数据位：比特数=6";
+				} else if(vars == "InspirySet:ComBit7") {
+					document.getElementById('title').innerHTML = "数据位：比特数=7";
+				} else if(vars == "InspirySet:ComBit8") {
+					document.getElementById('title').innerHTML = "数据位：比特数=8";
+				} else if(vars == "InspirySet:Parity0") {
+					document.getElementById('title').innerHTML = "效验类型：无效验";
+				} else if(vars == "InspirySet:Parity1") {
+					document.getElementById('title').innerHTML = "效验类型：奇效验";
+				} else if(vars == "InspirySet:Parity2") {
+					document.getElementById('title').innerHTML = "效验类型：偶效验";
+				} else if(vars == "InspirySet:StopBit1") {
+					document.getElementById('title').innerHTML = "停止位：1位";
+				} else if(vars == "InspirySet:StopBit2") {
+					document.getElementById('title').innerHTML = "停止位：2位";
+				} else if(vars == "InspirySet:WorkMode2") {
+					document.getElementById('title').innerHTML = "工作模式：单次";
+				} else if(vars == "InspirySet:WorkMode0") {
+					document.getElementById('title').innerHTML = "工作模式：自动";
+				} else if(vars == "InspirySet:WorkMode1") {
+					document.getElementById('title').innerHTML = "工作模式：连续";
+				} else if(vars == "InspirySet:DelayTime1000") {
+					document.getElementById('title').innerHTML = "扫码时间间隔：1s";
+				} else if(vars == "InspirySet:DelayTime5000") {
+					document.getElementById('title').innerHTML = "扫码时间间隔：5s";
+				} else if(vars == "InspirySet:DelayTime10000") {
+					document.getElementById('title').innerHTML = "扫码时间间隔：10s";
+				} else if(vars == "InspirySet:Tail1") {
+					document.getElementById('title').innerHTML = "后缀设置：打开";
+					vars = "InspirySet:Tail\n\r";
+				} else if(vars == "InspirySet:Tail0") {
+					document.getElementById('title').innerHTML = "后缀设置：关闭";
+					vars = "InspirySet:Tail";
+				} else if(vars == "InspirySet:OneDimenOpen1") {
+					document.getElementById('title').innerHTML = "打开条码二维码识读：开启Code128码";
+				} else if(vars == "InspirySet:OneDimenOpen2") {
+					document.getElementById('title').innerHTML = "打开条码二维码识读：开启Code39码";
+				} else if(vars == "InspirySet:OneDimenOpen4") {
+					document.getElementById('title').innerHTML = "打开条码二维码识读：开启EAN8码";
+				} else if(vars == "InspirySet:OneDimenOpen8") {
+					document.getElementById('title').innerHTML = "打开条码二维码识读：开启EAN13码";
+				} else if(vars == "InspirySet:TwoDimenOpen2") {
+					document.getElementById('title').innerHTML = "打开条码二维码识读：开启PDF417码";
+				} else if(vars == "InspirySet:TwoDimenOpen8") {
+					document.getElementById('title').innerHTML = "打开条码二维码识读：开启DM码";
+				} else if(vars == "InspirySet:OneDimenClose1") {
+					document.getElementById('title').innerHTML = "关闭条码二维码识读：关闭Code128码";
+				} else if(vars == "InspirySet:OneDimenClose2") {
+					document.getElementById('title').innerHTML = "关闭条码二维码识读：关闭Code39码";
+				} else if(vars == "InspirySet:OneDimenClose4") {
+					document.getElementById('title').innerHTML = "关闭条码二维码识读：关闭EAN8码";
+				} else if(vars == "InspirySet:OneDimenClose8") {
+					document.getElementById('title').innerHTML = "关闭条码二维码识读：关闭EAN13码";
+				} else if(vars == "InspirySet:TwoDimenClose2") {
+					document.getElementById('title').innerHTML = "关闭条码二维码识读：关闭PDF417码";
+				} else if(vars == "InspirySet:TwoDimenClose8") {
+					document.getElementById('title').innerHTML = "关闭条码二维码识读：关闭DM码";
+				} else if(vars == "InspirySet:RedLed0") {
+					document.getElementById('title').innerHTML = "LED开关：开";
+				} else if(vars == "InspirySet:RedLed1") {
+					document.getElementById('title').innerHTML = "LED开关：关";
+				}
+				jQuery('#qrcode').qrcode({
+					width: 250, //宽度 
+					height: 250, //高度 
+					text: vars.toString()
+				})
+			});
+		</script>
+	</head>
+
+	<body style="padding: 0dp;margin: auto; align-content: center;">
+		<div id="qrcode" align="center" style="margin-top: 20%;"></div>
+		<p align="center" id="title"><b>标题</b></p>
+	</body>
+
+</html>

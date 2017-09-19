@@ -1,0 +1,40 @@
+<div id="menuFunctionListContainer" style="padding-bottom: 20px;">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">系统功能管理</a>
+			</div>
+			<button class="btn btn-primary hidden" id="addbtn" onclick="addFunctionModal();">+&nbsp;添加功能</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">
+            <label class="searchText" for="functionNameSearch">功能名称</label><input id="functionNameSearch" type="text" class="special">
+        	<button class="searchBtn" id="querybtn" onclick="getFunctionList(1);" >查询</button>
+		</div>	
+		<div class="col-sm-12">
+			<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+    		<div class="panel panel-default">
+        		<table id="menuFunctionTable" class="table alignCenter">
+           			<thead class="theadStyle">
+                        <tr>
+                        	<th class="col-sm-1" style="text-align: center;">编号</th>
+                            <th class="col-sm-2">功能名称</th>
+                            <th class="col-sm-2">功能编号</th>
+                            <th class="col-sm-1">排序号</th>
+                            <th class="col-sm-3">描述</th>
+                            <th class="col-sm-1">启用状态</th>
+                            <!--<th class="col-sm-2" style="text-align: center;">创建时间</th>-->
+                            <th class="col-sm-2" style="text-align: center;">操作</th>
+                        </tr>
+            		</thead>
+                <tbody id="dictionaryTbody"></tbody>
+            	</table>                           
+    		</div>
+    		<div class="alignCenter">
+        		<div id="pagination" class="pagination"></div>
+    		</div>
+		</div>
+	</div>
+</div>
+			

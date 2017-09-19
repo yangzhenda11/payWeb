@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付宝第三方应用授权</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../../common/images/logo.ico" rel="shortcut icon">
+    <link id="bs-css" href="../../common/css/bootstrap-cerulean.css" rel="stylesheet">
+    <link href="../../common/css/charisma-app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../common/css/iconfont.css?v=17020801"/>
+    <link rel="stylesheet" type="text/css" href="css/isv.css?v=17020801"/>
+    <script src="../../common/js/jquery-1.11.0.js"></script>
+    <script src="../../common/js/bootstrap.js"></script>
+    <script src="../../common/js/base.js?v=17020801"></script>
+</head>
+<body>
+	<div id="content">
+		<div class="title">支付宝第三方</div>
+		<div class="subtitle">应用授权</div>
+		<div class="content">商户名称:<span id="customerName"></span></div>
+		<div id="erquery" onclick="getTokenByAuthCode();">确认</div>
+	</div>
+	<div id="successDiv" style="display: none;">
+		<i class='icon iconfont icon-iconfontcolor94'></i>
+		<p class="successSpan">授权成功!</p>
+	</div>
+	<div id="failureDiv" style="display: none;">
+		<i class='icon iconfont icon-shibai'></i>
+		<p class="failureSpan" id="failureValue">授权失败!</p>
+	</div>
+</body>
+<script src="js/isv.js?v=17010601"></script>
+</html>

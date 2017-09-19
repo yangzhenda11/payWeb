@@ -1,0 +1,158 @@
+<div id="systemAddContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#systemList">系统模块管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">新增系统模块</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backSystemList(0);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="addSystem" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addtopBarName"><span class="requiredValue">系统名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addtopBarName" name="topBarName" placeholder="请输入系统名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addtopBarCode"><span class="requiredValue">系统编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addtopBarCode" name="topBarCode" placeholder="请输入系统编号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addIcon"><span class="requiredValue">系统图标:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addIcon" name="icon" placeholder="请输入系统图标">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addsort"><span class="requiredValue">排序号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addsort" name="sort" placeholder="请输入排序号">
+                    </div>
+               	</div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" id="enableStatus0" value="0" style="margin-left: 25px;" ><label for="enableStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>
+<div id="systemEditContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#systemList">系统模块管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">系统模块修改</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backSystemList(1);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="editSystem" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editTopBarName"><span class="requiredValue">系统名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="text" class="form-control" id="editTopBarName" name="topBarName" placeholder="请输入系统名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editTopBarCode"><span class="requiredValue">系统编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control hidden" id="editsTopBarCode" name="topBarCode" placeholder="">
+						<input type="text" disabled="" class="form-control" id="editTopBarCode" name="topBarCode" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editIcon"><span class="requiredValue">系统图标:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="editIcon" name="icon" placeholder="请输入系统图标">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editsort"><span class="requiredValue">排序号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="editsort" name="sort" placeholder="请输入排序号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="editStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="editStatus0">禁用</label>
+                    </div>
+                </div> 
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>              
+    	</div>
+	</div>
+</div>
+<div id="systemDetailContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#systemList">系统模块管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">系统模块详情</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backSystemList(1);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="topBarNameDetails"><span class="requiredValue">系统名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="text" class="form-control" id="topBarNameDetails" name="topBarName" placeholder="请输入系统名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="topBarCodeDetails"><span class="requiredValue">系统编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+						<input type="text" disabled="" class="form-control" id="topBarCodeDetails" name="topBarCode" placeholder="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="iconDetail"><span class="requiredValue">系统图标:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="iconDetail" name="icon" placeholder="请输入系统图标">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="sortDetails"><span class="requiredValue">排序号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="sortDetails" name="sort" placeholder="请输入排序号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="editStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;"><label for="editStatus0">禁用</label>
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>

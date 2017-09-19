@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <title>服务商配置管理</title>
+	    <script src="../../common/js/jquery-1.11.0.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+		        url: '/deviceModel/list',
+		        dataType: 'json',
+		        async: false,
+		        success: function (result) {
+		           	if (result.code == "301") {
+				    	sessionStorage.clear();
+				        window.location.href='../../index.html';
+				    };
+		        }
+		   	});
+		</script>
+		<link href="../../common/images/logo.ico" rel="shortcut icon">
+	    <link id="bs-css" href="../../common/css/bootstrap-cerulean.css?v=17050901" rel="stylesheet">
+	    <link href="../../common/css/charisma-app.css" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css?v=17050901"/>
+	    <link rel="stylesheet" type="text/css" href="../../common/css/bootstrapValidator.min.css"/>
+	    <link rel="stylesheet" type="text/css" href="../../common/css/fileinput.min.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/config.css?v=17050901"/>
+		<script src="../../common/js/bootstrap.js"></script>
+		<script src="../../common/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/tendina.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/jquery.treemenu.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/fileinput.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/fileinput_locale_zh.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/base.js?v=17050901"></script>
+	</head>
+	<body>
+		<div id="header">
+			<div class="topNav">
+				<div class="topNavContent">
+					<div class="navRight">
+						<i class="glyphicon glyphicon-user"></i><span>你好,</span><span id="accountName"></span><a class="logout" href="#" onclick="logout()">退出</a>
+						<i class="glyphicon glyphicon-envelope"></i><a href="#">消息中心</a>
+						<i class="glyphicon glyphicon-question-sign"></i><a href="#">帮助中心</a>
+						<i class="glyphicon glyphicon-lock"></i><a href="#" data-toggle="modal" data-target="#changePassword">修改密码</a>
+					</div>
+				</div>
+			</div>
+			<div class="logoBar">
+				<div class="logoBarContent">
+					<img class="logo" src="../../common/images/logo.png?v=17011601"/>
+					<span class="space"></span>
+					<span class="platform">商户管理平台</span>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<p>
+				<span>Powered by Inspriy</span><span style="margin-left: 20px;">Copyright 2005-2017 All Rights Reserved</span>
+			</p>
+		</div>
+		<div class="container" id="container" >
+			<div class="row" style="width: 100%;margin: 0;">
+				<div class="col-xs-2 leftContainer">
+					<div id="control"><i class='icon iconfont icon-xiangzuoshouqi-copy'></i></div>
+					<ul id="nav"></ul>
+					<ul id="navIcon"></ul>
+				</div>
+				<div class="col-xs-2 treeContainer">
+					<div id="searchlistTree"><input id="searchTreeValue" type="text" placeholder="搜索客户" value=""/><i class='icon iconfont icon-iconfontsousuo1 operate'></i></div>
+					<ul class="listTree" id="listTree"></ul>
+				</div>
+				<div class="col-xs-8 rightContainer">
+					<div class="row navbars">
+						<div id="upgradeMenu" class="col-xs-12">
+							<div class="navbars_nav">
+								<a href="javascript:void(0);">支付配置选择</a>
+							</div>
+						</div>
+					</div>
+		            <div class="row customerConfigSelect" style="width: 100%;">
+						<!--<fieldset>
+						    <legend>间连通道选择</legend>
+					    	<span class="spdbTitle">浦发银行</span>
+					    	<span id="relation">						    		
+						    	<input type="checkbox" name="WXP" id="WXP" value="WXP" checked=""/><label for="WXP">微信</label>
+						    	<input type="checkbox" name="ALP" id="ALP" value="ALP" /><label for="ALP">支付宝</label>
+						    	<input type="checkbox" name="YZF" id="YZF" value="YZF" /><label for="YZF">翼支付</label>
+						    	<input type="checkbox" name="QQP" id="QQP" value="QQP" /><label for="QQP">qq钱包</label>
+						    	<input type="checkbox" name="JDP" id="JDP" value="JDP" /><label for="JDP">京东钱包</label>
+						    	<input type="checkbox" name="BDP" id="BDP" value="BDP" /><label for="BDP">百度钱包</label>
+						    	<input type="checkbox" name="YDP" id="YDP" value="YDP" /><label for="YDP">移动和包</label>
+						    	<input type="checkbox" name="YLP" id="YLP" value="YLP" /><label for="YLP">银联钱包</label>
+					    	</span>							    
+						</fieldset>-->
+						<form id="customerSelect">
+						<input type="radio" name="type" id="default" value="" class="hidden" checked=""/>
+						
+						<input type="radio" class="straightInput" name="type" id="straight" value="1" />
+						<label for="straight" class="straightLable">直连通道<span class="straightVaule">(微信,支付宝)</span></label>
+				    	<input type="radio" class="relationInput" name="type" id="relation" value="2" />
+				    	<label for="relation" class="relationLable">间连通道<span class="relationVaule">(银行通道)</span></label>
+						</form>
+						<div class="saveBtn" id="configSelectBtn" onclick="saveConfig();">确认选择</div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		<!--摸态框组件-->
+		<div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+	</body>
+	<script src="../../common/js/jquery.qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../common/js/common.js?v=17050901" type="text/javascript" charset="utf-8"></script>
+	<script src="js/customerConfigSelect.js?v=17050901" type="text/javascript" charset="utf-8"></script>	
+</html>

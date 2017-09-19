@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>配置页面</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="style/weui.css"/>
+    <link rel="stylesheet" href="style/example.css"/>
+    <script src="js/zepto.min.js"></script>
+    <script src="js/example.js"></script>
+    <script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/qrcode.js"></script>
+    <script src="js/jquery.qrcode.js?v=170301"></script>
+    <style type="text/css">
+        input {
+            margin: 3px;
+            width: auto;
+            padding-left: 3px;
+        }
+
+        #br2 {
+            text-align: -moz-right;
+        }
+
+        .div {
+            margin: 0 auto;
+            width: auto;
+            height: 100px;
+        }
+
+        div {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center top;
+        }
+
+        body {
+            margin: 0;
+            width: auto;
+            align-content: center;
+            height: auto;
+            text-align: center;
+        }
+
+        .a-upload {
+            height: 20px;
+            line-height: 20px;
+            position: relative;
+            cursor: pointer;
+            color: #888;
+            background: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            display: inline-block;
+            *display: inline;
+            *zoom: 1
+        }
+
+        .a-upload input {
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            cursor: pointer
+        }
+
+        .a-upload:hover {
+            color: #444;
+            background: #eee;
+            border-color: #ccc;
+            text-decoration: none
+        }
+
+        .right-top {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            /*这是必须的*/
+            z-index: 999;
+            right: 5px;
+            /*这是必须的*/
+            top: 2px;
+            /*这是必须的*/
+            background: url(img/volume.png);
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div id="title"
+     style="line-height: 48px;width: 100%;height: 48px;background: #60b81c;color: #FFFFFF;text-align: center;overflow: hidden;	position: fixed;    z-index:999;">
+    WIFI 配置
+</div>
+<div class="right-top" onclick="window.location.href='setvolume.html';"></div>
+<div id="qrcode" style="padding-top: 65px; padding-bottom: 40px;"></div>
+<div class="div">
+    <div align="center" id="show">
+        <select name="cars" id="net" onchange="net(this[selectedIndex].value);" class="a-upload"
+                style="width: 80%;; height: 42px;">
+            <option value="请选择网络类型" selected="selected">请选择网络类型</option>
+            <option value="WIFI">WIFI</option>
+            <option value="LAN">LAN</option>
+            <!--<option value="GPRS">GPRS</option>-->
+            <option value="3G">3G-4G上网卡</option>
+        </select>
+        <p/>
+        <input type="text" class="a-upload" id="n" style="width: 80%; height: 40px;display:none;"
+               placeholder="WIFI名称"/>
+        <p/>
+        <input type="text" id="k" class="a-upload" style="width: 80%; height: 40px;display:none;" placeholder="WIFI密码"/>
+        <p/>
+        <select name="cars" id="pr" class="a-upload" onchange="pr(this[selectedIndex].value);"
+                style="width: 80%;; height: 42px;">
+            <option value="打印机类型" selected="selected">请选择打印机类型</option>
+	    <option value="无">无</option>
+            <option value="串口">串口</option>
+            <option value="USB">USB</option>
+            <option value="网络打印机">网络打印机</option>
+        </select>
+        <p/>
+        <input type="text" class="a-upload" id="pt" style="width: 80%; height: 40px;display:none;"
+               placeholder="请输入打印机端口号"/>
+        <p/>
+        <input type="text" id="pip" class="a-upload" style="width: 80%; height: 40px;display:none;"
+               placeholder="请输入打印机地址"/>
+        <p/>
+        <select name="cars" id="br" class="a-upload" style="width: 80%; height: 42px;display:none;">
+            <option value="波特率" selected="selected">请选择打印机波特率</option>
+            <option value="2400">2400</option>
+            <option value="4800">4800</option>
+            <option value="9600">9600</option>
+            <option value="19200">19200</option>
+            <option value="38400">38400</option>
+            <option value="57600">57600</option>
+            <option value="115200">115200</option>
+        </select>
+        <p/>
+        <font id="br2" style="display:none;">当前IP为派派伴侣IP:</font>
+        <p/>
+        <select name="cars" id="br1" onchange="cc(this[selectedIndex].value);" class="a-upload"
+                style="width: 80%; height: 42px; display:none;">
+            <option selected="selected" value="自动">DHCP</option>
+            <option value="手动">静态IP</option>
+        </select>
+    </div>
+    <div align="center" id="ipdiv" style="display:none">
+        <input type="text" name="fname" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" class="a-upload"
+               id="ip" style="width: 80%; height: 40px;" placeholder="iP地址(如：192.168.0.240)"/>
+        <p/>
+        <input type="text" name="fname" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" id="mask"
+               class="a-upload" style="width: 80%; height: 40px;" placeholder="子网掩码(如：255.255.255.0)"/>
+        <p/>
+        <input type="text" name="fname" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" class="a-upload"
+               id="gw" style="width: 80%; height: 40px;" placeholder="默认网关(如：192.168.0.1)"/>
+        <p/>
+        <input type="text" name="fname" onkeyup="value=value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" id="dns"
+               class="a-upload" style="width: 80%; height: 40px;" placeholder="DNS服务器(如：8.8.8.8)"/>
+    </div>
+    <p/>
+    <input value="获取二维码" type="button" id="btn"
+           style="align-content: center;width: 60%; height: 40px; margin-bottom: 40px;"
+           class="weui_btn weui_btn_primary" onclick="generateQRCode()"></input>
+</div>
+
+<div class="weui_dialog_confirm" id="dialog1" style="display: none;">
+    <div class="weui_mask"></div>
+    <div class="weui_dialog">
+        <div class="weui_dialog_hd"><strong class="weui_dialog_title">WIFI配置</strong></div>
+        <input type="text" class="weui_dialog_bd" id="weui_dialog_bd"
+               style='border-left:0px;border-top:0px;border-right:0px;border-bottom:1px;background: #FAFAFA;color: #353535;'
+               disabled="disabled"/>
+        <div class="weui_dialog_ft">
+            <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+    function generateQRCode() {
+        if (document.getElementById("btn").value == "确定") {
+            document.getElementById("show").style.display = "";
+            document.getElementById("ipdiv").style.display = "";
+            document.getElementById("btn").value = "获取二维码";
+            if ($("canvas")) {
+                $("canvas").remove();
+            }
+        } else if (document.getElementById("btn").value == "获取二维码") {
+            var data = new Object;
+            if (document.getElementById("net").value == "请选择网络类型") {
+                $('#dialog1').show();
+                document.getElementById("weui_dialog_bd").value = "请选择网络类型";
+                $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                    $('#dialog1').hide();
+                });
+                return;
+            }
+            if (document.getElementById("net").value == "WIFI") {
+                if (document.getElementById("n").value != "") {
+                    data.n = document.getElementById("n").value;
+                } else {
+                    $('#dialog1').show();
+                    document.getElementById("weui_dialog_bd").value = "请输入WIFI名称";
+                    $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                        $('#dialog1').hide();
+                    });
+                    return;
+                }
+                data.k = document.getElementById("k").value;
+            }
+            if (document.getElementById("net").value == "WIFI") {
+                data.net = parseInt(1);
+            } else if (document.getElementById("net").value == "LAN") {
+                data.net = parseInt(2);
+//            } else if (document.getElementById("net").value == "GPRS") {
+//                data.net = parseInt(2);
+            } else if (document.getElementById("net").value == "3G") {
+                data.net = parseInt(3);
+            }
+            if (document.getElementById("pr").value == "串口") {
+                data.pr = parseInt(2);
+            } else if (document.getElementById("pr").value == "无") {
+                data.pr = parseInt(0);
+            } else if (document.getElementById("pr").value == "USB") {
+                data.pr = parseInt(4);
+            } else if (document.getElementById("pr").value == "网络打印机") {
+                data.pr = parseInt(5);
+            }
+            if (document.getElementById("br").value != "" && document.getElementById("br").value != "波特率") {
+                data.br = parseInt(document.getElementById("br").value);
+            }
+            if (document.getElementById("pr").value == "打印机类型") {
+                $('#dialog1').show();
+                document.getElementById("weui_dialog_bd").value = "请选择打印机类型";
+                $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                    $('#dialog1').hide();
+                });
+                return;
+            }
+            if (document.getElementById("pr").value == "串口") {
+                if (document.getElementById("br").value == '波特率') {
+                    $('#dialog1').show();
+                    document.getElementById("weui_dialog_bd").value = "请选择打印机波特率";
+                    $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                        $('#dialog1').hide();
+                    });
+                    return;
+                }
+                if (document.getElementById("br").value == '') {
+                    $('#dialog1').show();
+                    document.getElementById("weui_dialog_bd").value = "请选择打印机波特率";
+                    $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                        $('#dialog1').hide();
+                    });
+                    return;
+                }
+            }
+            if (document.getElementById("pr").value == "网络打印机") {
+                if (document.getElementById("net").value != "GPRS") {
+                    if (document.getElementById("pt").value == '') {
+                        $('#dialog1').show();
+                        document.getElementById("weui_dialog_bd").value = "请填写打印机端口";
+                        $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                            $('#dialog1').hide();
+                        });
+                        return;
+                    }
+                    if (document.getElementById("pip").value == '') {
+                        $('#dialog1').show();
+                        document.getElementById("weui_dialog_bd").value = "请填写打印机地址";
+                        $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                            $('#dialog1').hide();
+                        });
+                        return;
+                    }
+                    if (document.getElementById("br1").value == "自动") {
+                        $('#dialog1').show();
+                        document.getElementById("weui_dialog_bd").value = "请选择静态ip";
+                        $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                            $('#dialog1').hide();
+                        });
+                        return;
+                    }
+                } else {
+                    if (document.getElementById("pt").value == '') {
+                        $('#dialog1').show();
+                        document.getElementById("weui_dialog_bd").value = "请填写打印机端口";
+                        $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                            $('#dialog1').hide();
+                        });
+                        return;
+                    }
+                    if (document.getElementById("pip").value == '') {
+                        $('#dialog1').show();
+                        document.getElementById("weui_dialog_bd").value = "请填写打印机地址";
+                        $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                            $('#dialog1').hide();
+                        });
+                        return;
+                    }
+                }
+            }
+            if (document.getElementById("pt").value != "") {
+                data.pt = document.getElementById("pt").value;
+            }
+            if (document.getElementById("pip").value != "") {
+                data.pip = document.getElementById("pip").value;
+            }
+            if (document.getElementById("br1").value == "手动") {
+                data.dhcp = parseInt(1);
+            } else if (document.getElementById("br1").value == "自动") {
+                data.dhcp = parseInt(0);
+            }
+            if (document.getElementById("br1").value == "手动") {
+                if (document.getElementById("ip").value == '') {
+                    $('#dialog1').show();
+                    document.getElementById("weui_dialog_bd").value = "请填写IP";
+                    $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                        $('#dialog1').hide();
+                    });
+                    return;
+                }
+                if (document.getElementById("mask").value == '') {
+                    $('#dialog1').show();
+                    document.getElementById("weui_dialog_bd").value = "请填写子网掩码";
+                    $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                        $('#dialog1').hide();
+                    });
+                    return;
+                }
+                if (document.getElementById("gw").value == '') {
+                    $('#dialog1').show();
+                    document.getElementById("weui_dialog_bd").value = "请填写默认网关";
+                    $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                        $('#dialog1').hide();
+                    });
+                    return;
+                }
+                if (document.getElementById("dns").value == '') {
+                    $('#dialog1').show();
+                    document.getElementById("weui_dialog_bd").value = "请填写DNS服务器";
+                    $('#dialog1').find('.weui_btn_dialog').on('click', function () {
+                        $('#dialog1').hide();
+                    });
+                    return;
+                }
+            }
+            if (document.getElementById("ip").value != "") {
+                data.ip = document.getElementById("ip").value;
+            }
+            if (document.getElementById("mask").value != "") {
+                data.mask = document.getElementById("mask").value;
+            }
+            if (document.getElementById("gw").value != "") {
+                data.gw = document.getElementById("gw").value;
+            }
+            if (document.getElementById("dns").value != "") {
+                data.dns = document.getElementById("dns").value;
+            }
+            var str = JSON.stringify(data);
+            if ($("canvas")) {
+                $("canvas").remove();
+            }
+            document.getElementById("show").style.display = "none";
+            document.getElementById("ipdiv").style.display = "none";
+            document.getElementById("btn").value = "确定";
+            jQuery('#qrcode').qrcode({
+                text: str,
+                width: 250, //宽度
+                height: 250, //高度
+            });
+            $('html, body').animate({
+                scrollTop: 0
+            }, 'slow');
+        }
+    }
+    /*IP*/
+    function cc(val) {
+        var a = document.getElementById("br1").value = val;
+        if (a == "手动") {
+            document.getElementById("ipdiv").style.display = ""; //显示
+            document.getElementById("ip").style.display = ""; //显示
+            document.getElementById("mask").style.display = ""; //显示
+            document.getElementById("dns").style.display = ""; //显示
+            document.getElementById("gw").style.display = ""; //显示
+        } else if (a == "自动") {
+            document.getElementById("ipdiv").style.display = "none"; //隐藏
+            document.getElementById("ip").value = "";
+            document.getElementById("ip").style.display = "none";
+            document.getElementById("mask").value = "";
+            document.getElementById("mask").style.display = "none";
+            document.getElementById("dns").value = "";
+            document.getElementById("dns").style.display = "none";
+            document.getElementById("gw").value = "";
+            document.getElementById("gw").style.display = "none";
+        }
+    }
+    /*网络
+     */
+    function net(val) {
+        var a = document.getElementById("net").value = val;
+        if (a == "WIFI") {
+            var kk = document.getElementById("br1").options;
+            for (var i = 0; i < kk.length; i++) {
+                if (kk[i].value == "自动") {
+                    kk[i].selected = true;
+                    break;
+                }
+            }
+            kk.disable = true;
+            document.getElementById("n").style.display = ""; //显示
+            document.getElementById("k").style.display = ""; //显示
+        } else {
+            document.getElementById("n").style.display = "none"; //隐藏
+            document.getElementById("k").style.display = "none"; //隐藏
+            document.getElementById("n").value = "";
+            document.getElementById("k").value = "";
+        }
+        if (a == "GPRS" || a == "请选择网络类型") {
+            var kk = document.getElementById("br1").options;
+            for (var i = 0; i < kk.length; i++) {
+                if (kk[i].value == "自动") {
+                    kk[i].selected = true;
+                    break;
+                }
+            }
+            kk.disable = true;
+            document.getElementById("br1").style.display = "none"; //隐藏
+            document.getElementById("br2").style.display = "none"; //隐藏
+            document.getElementById("ip").value = "";
+            document.getElementById("ip").style.display = "none"; //隐藏
+            document.getElementById("mask").value = "";
+            document.getElementById("mask").style.display = "none"; //隐藏
+            document.getElementById("dns").value = "";
+            document.getElementById("dns").style.display = "none"; //隐藏
+            document.getElementById("gw").value = "";
+            document.getElementById("gw").style.display = "none"; //隐藏
+        } else {
+            document.getElementById("br1").style.display = ""; //显示
+            document.getElementById("br2").style.display = ""; //显示
+            document.getElementById("ip").value = "";
+            document.getElementById("ip").style.display = "none"; //隐藏
+            document.getElementById("mask").value = "";
+            document.getElementById("mask").style.display = "none"; //隐藏
+            document.getElementById("dns").value = "";
+            document.getElementById("dns").style.display = "none"; //隐藏
+            document.getElementById("gw").value = "";
+            document.getElementById("gw").style.display = "none"; //隐藏
+        }
+        if (a == "LAN") {
+            var kk = document.getElementById("br1").options;
+            for (var i = 0; i < kk.length; i++) {
+                if (kk[i].value == "自动") {
+                    kk[i].selected = true;
+                    break;
+                }
+            }
+            kk.disable = true;
+        }
+    }
+    /*打印机类型
+     */
+    function pr(val) {
+        var a = document.getElementById("pr").value = val;
+        var n = document.getElementById("net").value;
+        if (a == "串口") {
+            document.getElementById("br").style.display = ""; //显示
+            if (n == "GPRS") {
+                var kk = document.getElementById("br1").options;
+                for (var i = 0; i < kk.length; i++) {
+                    if (kk[i].value == "自动") {
+                        kk[i].selected = true;
+                        break;
+                    }
+                }
+                kk.disable = true;
+                document.getElementById("br1").style.display = "none"; //隐藏
+                document.getElementById("br2").style.display = "none"; //隐藏
+                document.getElementById("ip").value = "";
+                document.getElementById("ip").style.display = "none"; //隐藏
+                document.getElementById("mask").value = "";
+                document.getElementById("mask").style.display = "none"; //隐藏
+                document.getElementById("dns").value = "";
+                document.getElementById("dns").style.display = "none"; //隐藏
+                document.getElementById("gw").value = "";
+                document.getElementById("gw").style.display = "none"; //隐藏
+            }
+            //				else {
+            //					document.getElementById("br1").style.display = ""; //显示
+            //					document.getElementById("br2").style.display = ""; //显示
+            //					document.getElementById("ip").style.display = ""; //显示
+            //					document.getElementById("mask").style.display = ""; //显示
+            //					document.getElementById("dns").style.display = ""; //显示
+            //					document.getElementById("gw").style.display = ""; //显示
+            //				}
+        } else {
+            document.getElementById("br").style.display = "none"; //隐藏
+            document.getElementById("br").value = "波特率";
+        }
+        if (a == "网络打印机") {
+            document.getElementById("pip").style.display = ""; //显示
+            document.getElementById("pt").style.display = ""; //显示
+            document.getElementById("br").style.display = "none"; //隐藏
+            document.getElementById("br").value = "波特率";
+            if (n == "GPRS") {
+                var kk = document.getElementById("br1").options;
+                for (var i = 0; i < kk.length; i++) {
+                    if (kk[i].value == "自动") {
+                        kk[i].selected = true;
+                        break;
+                    }
+                }
+                kk.disable = true;
+                document.getElementById("br1").style.display = "none"; //隐藏
+                document.getElementById("br2").style.display = "none"; //隐藏
+                document.getElementById("ip").value = "";
+                document.getElementById("ip").style.display = "none"; //隐藏
+                document.getElementById("mask").value = "";
+                document.getElementById("mask").style.display = "none"; //隐藏
+                document.getElementById("dns").value = "";
+                document.getElementById("dns").style.display = "none"; //隐藏
+                document.getElementById("gw").value = "";
+                document.getElementById("gw").style.display = "none"; //隐藏
+            }
+            //				else {
+            //					document.getElementById("br1").style.display = ""; //显示
+            //					document.getElementById("br2").style.display = ""; //显示
+            //					document.getElementById("ipdiv").style.display = ""; //显示
+            //					document.getElementById("ip").style.display = ""; //显示
+            //					document.getElementById("mask").style.display = ""; //显示
+            //					document.getElementById("dns").style.display = ""; //显示
+            //					document.getElementById("gw").style.display = ""; //显示
+            //				}
+        } else {
+            document.getElementById("pip").style.display = "none"; //隐藏
+            document.getElementById("pt").style.display = "none"; //隐藏
+            document.getElementById("pip").value = "";
+            document.getElementById("pt").value = "";
+        }
+        if (a == "USB") {
+            document.getElementById("br").style.display = "none"; //隐藏
+            document.getElementById("br").value = "波特率";
+            if (n == "GPRS") {
+                var kk = document.getElementById("br1").options;
+                for (var i = 0; i < kk.length; i++) {
+                    if (kk[i].value == "自动") {
+                        kk[i].selected = true;
+                        break;
+                    }
+                }
+                kk.disable = true;
+                document.getElementById("br1").style.display = "none"; //隐藏
+                document.getElementById("br2").style.display = "none"; //隐藏
+                document.getElementById("ip").value = "";
+                document.getElementById("ip").style.display = "none"; //隐藏
+                document.getElementById("mask").value = "";
+                document.getElementById("mask").style.display = "none"; //隐藏
+                document.getElementById("dns").value = "";
+                document.getElementById("dns").style.display = "none"; //隐藏
+                document.getElementById("gw").value = "";
+                document.getElementById("gw").style.display = "none"; //隐藏
+            }
+            //				else {
+            //					document.getElementById("br1").style.display = ""; //显示
+            //					document.getElementById("br2").style.display = ""; //显示
+            //					document.getElementById("ip").style.display = ""; //显示
+            //					document.getElementById("mask").style.display = ""; //显示
+            //					document.getElementById("dns").style.display = ""; //显示
+            //					document.getElementById("gw").style.display = ""; //显示
+            //				}
+        }
+    }
+</script>
+
+</html>

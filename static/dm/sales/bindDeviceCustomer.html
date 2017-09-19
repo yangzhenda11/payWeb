@@ -1,0 +1,55 @@
+<div id="bindDeviceCustomerContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">未销售设备列表</a>
+			</div>						
+			<button class="btn btn-primary hidden" id="salebtn" onclick="sellModal();">销售</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">			
+    		<label class="searchText" for="queryDeviceId">设备编号</label><input type="text" id="queryDeviceId" class="special"/>
+            <label class="searchText" for="queryDeviceType">设备类型</label>
+            <select id="queryDeviceType" class="specialselect">
+                <option value="0">全部</option>
+            </select>
+            <button class="searchBtn" type="button" onclick="getAllUnboundDevices();">筛选</button>           	
+		</div>	
+		<div class="col-sm-12">
+			<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+        	<div class="panel panel-default">
+                <table id='unboundDeviceTblId' class="table alignCenter">
+                    <thead>
+                        <tr class="thStyle">
+                            <th class="col-sm-1" style="text-align: center"><input id='checkAllId' type='checkbox' onclick='checkAll()'></th>
+                            <th class="col-sm-3" style="text-align: center">设备</th>
+                            <th class="col-sm-3" style="text-align: center">设备类型</th>
+                            <th class="col-sm-3" style="text-align: center">生产日期</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="alignCenter">
+            <div id="pagination" class="pagination"></div>	
+        </div>
+	</div>
+	<div class="modal fade" id="sell" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<span class="modal_title">设备销售</span>
+				</div>
+                <div class="modal-body" style="text-align: center;">                	
+                    <label class="searchText" for="customerList">请选择服务商:</label><select id="customerList" style="border: 1px solid #ccc;"></select>
+                </div>
+                <div style="text-align: center;margin-bottom: 30px;margin-top: 10px;">
+                    <button type="button" onclick="bindCustomer()" class="saveBtn">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

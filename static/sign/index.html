@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-family: "微软雅黑";
+        }
+        form{
+            text-align: center;
+            margin:40px auto 0;
+            width: 600px;
+        }
+        input{
+            padding: 8px;
+            border: 1px solid #999 ;
+        }
+        .form-control{
+            width: 100px;
+            height: 16px;
+        }
+        .form-value{
+            width: 380px;
+            height: 16px;
+            margin-left: 10px;
+        }
+        input[type="button"]{
+            width: 80px;
+            height:32px;
+            line-height:30px;
+            padding:0;
+            border: 1px solid #ccc;
+            background: #efefef;
+            font-size: 14px;
+            left: 36px;
+            margin-top: -60px;
+            position: relative;
+        }
+        .addBtn{
+            width: 80px;
+            height:30px;
+            line-height:30px;
+            border: 1px solid #ccc;
+            background: #efefef;
+            font-size: 14px;
+            position: relative;
+            left: 30%;
+            cursor: pointer;
+            top:28px;
+        }
+        .suc-container{
+            width: 600px;
+            height:300px;
+            border: 1px solid #999;
+            margin: 20px auto;
+            padding: 10px;
+        }
+       .key{margin-left: -56%}
+        .value{margin-left: 17%}
+    </style>
+</head>
+<body>
+<form name="myform" id="myform">
+    <div class="form-container">
+        <p>
+            <span class="key">Key</span>
+            <span class="value">Value</span>
+        </p>
+        <p>
+            <input type="text" class="form-control">
+            <input type="text" class="form-value">
+        </p>
+        <p>
+            <input type="text" class="form-control">
+            <input type="text" class="form-value">
+        </p>
+        <p>
+            <input type="text" class="form-control">
+            <input type="text" class="form-value">
+        </p>
+        <p>
+            <input type="text"  class="form-control">
+            <input type="text"  class="form-value">
+        </p>
+    </div>
+    <div class="addBtn">增加字段</div>
+    <input type="button" class="saveBtn" value="提交">
+</form>
+<div class="suc-container">
+
+</div>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+    $('.saveBtn').click(function(){
+        var formObj={};
+        $('.form-container p').each(function(){
+            var key=$(this).find('.form-control').val();
+            var val=$(this).find('.form-value').val();
+            if(!!key && !!val){
+                formObj[key]=val;
+            }
+        });
+//        console.log(JSON.parse(JSON.stringify(formObj)));
+        $.ajax( {
+                type : "POST",
+                contentType:'application/json',
+                url : "/api/sign/md5",
+                dataType:'json',
+                data : JSON.stringify(formObj),
+                success : function (result) {
+//              	result = JSON.stringify(result);
+//              	result = result.replace(/,/g,"<br\>")
+                    console.log(result);
+//                    var i;
+                    $(".suc-container").empty();
+//                  $(".suc-container").html(result);
+//                    for (i in result){
+//                        $(".suc-container").append("\""+i+"\" : \""+result[i]+"\","+'<br>');
+//                    }
+//                    $(".suc-container").append(JSON.stringify(result));
+                      $(".suc-container").append('<pre>'+JSON.stringify(result, null, 4)+'</pre>');
+
+                }
+            });
+    });
+    $(".addBtn").click(function () {
+        var temp= '<p>'+'<input type="text" class="form-control">'+ '<input type="text" class="form-value">'+'</p>';
+        $(".form-container").append(temp);
+    })
+</script>
+</body>
+</html>

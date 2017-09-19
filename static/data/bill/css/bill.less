@@ -1,0 +1,402 @@
+a{
+    color: #459ae9;
+}
+a:hover{
+    color: #459ae9;
+}
+#billSummaryContainer{
+    #billEmpty{
+        width: 100%;
+        height: 100%;
+        .billImg{
+            display: block;
+            margin: 120px auto 0;
+            width: 180px;
+        }
+    }
+    #customerDiv{
+        display: none;
+        position: absolute;
+        width: 300px;
+        min-height: 200px;
+        background: #ccc;
+        border: 1px solid #ccc;
+        top: 30px;
+        left: 0;
+        z-index: 999;
+    }  
+    .collectDiv{
+        max-width: 960px;
+        overflow: auto;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        height: 140px;
+        display: inline-block;
+        #collectValue{
+            height: 120px;
+            width: auto;                      
+            display: inline-block;           
+            .collectPay,.collectPayTotal{
+                display: inline-block;
+                border-right:1px solid #ddd;
+                width: 159px;
+                height: 90px;
+                margin: 20px 0 10px 0;
+                color: #999;
+                p{
+                    text-align: center;
+                    width: 100%;
+                    margin: 0;
+                    height: 24px;                   
+                }                            
+            }
+            .collectPayTotal{
+                border: none;
+                color: #555;
+            }           
+        }
+    }
+    .tableDiv{        
+        max-width: 960px;
+        margin-top: 30px;
+        overflow: auto;        
+        border-radius: 5px;
+        height: auto;
+        display: inline-block;        
+        #tableValue{
+            height: auto;      
+            display: inline-block; 
+            margin-bottom: 10px;
+            th{
+                background: #f2f2f2;
+                font-weight: normal;
+                height: 38px;
+                line-height: 38px;
+                text-align: center;
+            }
+            .borderL{
+                border-left: 1px solid #efefef;
+            }
+            .boderBot{
+                border-bottom: 1px solid #efefef;
+            }
+            tbody {
+                td {
+                    height: 38px;
+                    line-height: 38px;
+                    text-align: center;                                   
+                }
+                
+                span{
+                    display: block;
+                    height: 16px;
+                    line-height: 16px;
+                    margin: 10px 0;
+                    border-right:1px solid #e4e4e4;
+                }
+            }
+            .payTitle{
+                width: 270px;
+            } 
+            #tableTitleTr{                
+                font-size: 14px;                              
+            }           
+        }
+    }
+    .weixinColor,.weixinColorLine{
+        color: #00c800;
+        cursor: pointer;
+    }
+    .aliColor,.aliColorLine{
+        color: #0398e0;
+        cursor: pointer;
+    }
+    .baiduColor,.baiduColorLine{
+        color: #ec443d;
+        cursor: pointer;
+    }
+    .pufaColor,.pufaColorLine{
+        color: #003473;
+        cursor: pointer;
+    }
+    .swiftColor,.swiftColorLine{
+        color: #51c2f0;
+        cursor: pointer;
+    }
+    .totalColor,.totalColorLine{
+        color: #d7ae4b;
+        cursor: pointer;
+    }
+    .weixinColorLine:hover{
+        text-decoration:underline;
+    }
+    .aliColorLine:hover{
+        text-decoration:underline;             
+    }
+    .baiduColorLine:hover{
+        text-decoration:underline;
+    }
+    .swiftColorLine:hover{
+        text-decoration: underline;
+    }
+    .pufaColorLine:hover{
+        text-decoration:underline;
+    }
+    .totalColorLine:hover{
+        text-decoration:underline;
+    }        
+    .titleStyle{
+        text-align: left;
+        label{
+            float: left;
+            margin: 6px 5px 0 10px;
+        }
+        #queryDeviceId{
+            float: left;
+        }
+        #summaryType{
+            width: 90px;
+            float: left;
+        }
+        #payTypeValue{
+            position: relative;
+            float: left;
+            #payType{
+                width: 80px;
+                float: left;               
+                height: 32px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 4px 12px;
+                line-height: 24px;
+                text-align: left;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            }            
+            #payTypeItem{
+                position: absolute;
+                top: 34px;
+                left: 0px;
+                z-index: 100;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                padding: 0;
+                width: 120px;
+                display: none;
+                padding: 5px 0 15px;
+                li{                   
+                    display: block;                   
+                    label{
+                        width: 120px;
+                        height: 20px;
+                        padding-left: 10px;
+                        input{
+                            margin-right: 5px;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        #cusName{
+            margin-left: 40px;
+        }
+        #querybtn{
+            margin-bottom: 5px;            
+        }
+        #queryDeviceIdBtn{
+            margin: 12px 5px 0 40px;            
+        }
+        #queryDeviceId{
+            margin-top: 7px;
+            width: 230px;
+        }
+    }
+}
+#deviceBillContainer{
+    #billEmpty{
+        width: 100%;
+        height: 100%;
+        .billImg{
+            display: block;
+            margin: 120px auto 0;
+            width: 180px;
+        }
+    }
+    .titleStyle{        
+        label{            
+            margin: 6px 5px 0 10px;
+        }        
+        #payTypeValue{
+            position: relative;
+            display: inline-block;
+            top:10px;
+            #payType{
+                width: 80px;
+                float: left;               
+                height: 32px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 4px 12px;
+                line-height: 24px;
+                text-align: left;
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            }            
+            #payTypeItem{
+                position: absolute;
+                top: 34px;
+                left: 0px;
+                z-index: 100;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                padding: 0;
+                width: 120px;
+                display: none;
+                padding: 5px 0 15px;
+                li{                   
+                    display: block;                   
+                    label{
+                        width: 120px;
+                        height: 20px;
+                        padding-left: 10px;
+                        text-align: left;
+                        input{
+                            margin-right: 5px;
+                            margin-top: 5px;
+                            display: inline-block;
+                        }
+                    }
+                }
+            }            
+        }        
+    }
+    .tableDiv{
+        clear: both;
+        max-width: 960px;        
+        overflow: auto;        
+        border-radius: 5px;
+        height: auto;
+        display: inline-block;        
+        #tableValue{
+            height: auto;      
+            display: inline-block;     
+            margin-bottom: 10px;                      
+            th{
+                background: #f2f2f2;
+                font-weight: normal;
+                height: 38px;
+                line-height: 38px;
+                text-align: center;
+            }
+            .borderL{
+                border-left: 1px solid #efefef;
+            }
+            .boderBot{
+                border-bottom: 1px solid #efefef;
+            }
+            tbody {
+                td {
+                    height: 38px;
+                    line-height: 38px;
+                    text-align: center;                                   
+                }
+                
+                span{
+                    display: block;
+                    height: 16px;
+                    line-height: 16px;
+                    margin: 10px 0;
+                    border-right:1px solid #e4e4e4;
+                }
+            }
+            .payTitle{
+                width: 200px;
+            } 
+            #tableTitleTr{                
+                font-size: 14px;                              
+            }           
+        }
+    }
+    .weixinColor,.weixinColorLine{
+        color: #00c800;
+        cursor: pointer;
+    }
+    .aliColor,.aliColorLine{
+        color: #0398e0;
+        cursor: pointer;
+    }
+    .baiduColor,.baiduColorLine{
+        color: #ec443d;
+        cursor: pointer;
+    }
+    .pufaColor,.pufaColorLine{
+        color: #003473;
+        cursor: pointer;
+    }
+    .swiftColor,.swiftColorLine{
+        color: #51c2f0;
+        cursor: pointer;
+    }
+    .totalColor,.totalColorLine{
+        color: #d7ae4b;
+        cursor: pointer;
+    }
+}
+#billDetailContainer{
+    .billSearchText{
+        float: left;
+        margin: 5px 5px 0 13px;
+    }
+    #reportrange{
+        border-radius: 4px;
+    }
+    #queryDeviceId{
+        float: left;
+        width: 220px;
+        margin-top: 7px;
+    }
+    #payType,#payStatus{
+        float: left;
+        width: 100px;
+    }
+    #idNumber{
+        float: left;
+        margin: 13px 5px 0 13px;
+    }
+    #querybtn{
+        margin-bottom: 5px;
+        margin-left: 10px;
+        float: left;
+    }
+    .alignCenter{
+        text-align: center;
+    }
+}
+#refoundDetailsContainer{
+    .refoundSearchText{
+        float: left;
+        margin: 5px 5px 0 10px;;
+    }
+    #reportrange{
+        border-radius: 4px;
+    }
+    #queryDeviceId{
+        float: left;
+        width: 155px;
+    }
+    #payType{
+        width: 80px;
+        float: left;
+    }
+    #querybtn{   
+        margin-left: 15px;
+        float: left;
+    }
+    .alignCenter{
+        text-align: center;
+    }
+    #customer_name{
+        margin-left: 10px;
+    }
+}

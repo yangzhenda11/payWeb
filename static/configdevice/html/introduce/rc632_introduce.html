@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>RC632设备配置介绍</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			ul {
+				list-style-type: decimal;
+			}
+			
+			ul .ul1 {
+				list-style-type: lower-latin;
+			}
+		</style>
+	</head>
+
+	<body style="padding: 0dp;margin: auto; align-content: center;">
+		<p align="center">对于每一次设置一定要遵循以下流程</p>
+		<div align="center"><img style="width: 220px; height: 250px;" src="img/setting.png" /></div>
+		<ul style="align-content: center; margin-left: 10px; margin-right:30px ;">
+			<li>扫描开始设置二维码，
+				<a href="qr.html?InspirySet:ToSet">开始设置</a>
+			</li>
+			<li style="margin-top: 5px;">扫描所需设置的二维码进行设置（每次可以设置一条或者多条） 我们的设置包括如下：
+				<ul class="ul1">
+					<li style="margin-top: 3px;"> 输出模式（分为串口和USB，默认是串口输出）</li>
+					<li style="margin-top: 3px;"> 串口波特率，数据位，停止位，校验位（默认是波特率9600，数据位8，停止位1，没有校验位）</li>
+					<li style="margin-top: 3px;"> 工作模式（默认是连续工作模式）</li>
+					<li style="margin-top: 3px;"> 扫码时间间隔（默认是2.5s）</li>
+					<li style="margin-top: 3px;"> 后缀的打开与关闭（默认后缀为”\r\n”）</li>
+					<li style="margin-top: 3px;"> 二维码与条码的打开与关闭（默认打开QR，CODE128，CODE39，EAN13，EAN8）</li>
+					<li style="margin-top: 3px;"> LED灯的开关（默认LED亮）
+					</li>
+				</ul>
+			</li>
+			<p style="color:#ff0000 ;margin-top:10px ;">输出模式选择<br /> 串口模式参数
+				<br /> 条码制式选择
+				<br /> 其他设置（LED，前、后缀）
+				<br />
+
+			</p>
+			以上设置具体二维码见
+			<a href="appendix.html">附录</a><br />
+			<li style="margin-top: 5px;">
+				<a href="qr.html?InspirySet:ToNormal">保存设置</a>
+			</li>
+			<li style="margin-top: 5px;">
+				<a href="qr.html?InspirySet:ToReboot">重启设备</a>
+			</li>
+		</ul>
+	</body>
+
+</html>

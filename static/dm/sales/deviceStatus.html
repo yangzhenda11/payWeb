@@ -1,0 +1,45 @@
+<div id="deviceStatusContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">设备状态监控</a>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+    	<div class="col-sm-12 titleStyle">			
+				<label class="searchText" for="customerId">服务商名称 </label><select id="customerId" name="customerId"></select>
+				<label class="searchText" for="queryDeviceId">设备编号 </label><input type="text" id="queryDeviceId" style="width: 150px;" class="special"/>
+           		<label class="searchText" for="queryDeviceType">设备类型</label> <select id="queryDeviceType" class="specialselect" style="width: 65px;"></select>
+                <label class="searchText" for="appNameList">App名称 </label><select id="appNameList" class="specialselect" onchange="bindDeviceChooseApp()"></select>
+                <label class="searchText" for="connectState">连接状态 </label>
+                <select id="connectState" class="specialselect" style="width: 67px;">
+                    <option value="0">全部</option>
+                    <option value="1">已连接</option>
+                    <option value="2">未连接</option>
+                </select>
+                <button class="searchBtn" type="button" onclick="getDeviceList(1);">筛选</button>           
+		</div>	
+        <div class="col-sm-12">
+        	<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+            <div class="panel panel-default panel-primary">               
+                <table id="devicesTable" class="table alignCenter">
+                    <thead>
+                        <tr class="thStyle">
+                            <th class="col-xs-2" style="padding-left: 20px;">设备编号</th>
+                            <th class="col-xs-3">服务商名称</th>
+                            <th class="col-xs-2">类型</th>
+                            <th class="col-xs-1">连接状态</th>
+                            <th class="col-xs-2" style="text-align: center;">掉线/重连次数</th>
+                            <th class="col-xs-2">固件版本</th>
+                        </tr>
+                    </thead>
+                    <tbody id="devicesTbody" class="trStyle"></tbody>
+                </table>                   	                        
+            </div>
+        </div>
+        <div class="alignCenter">
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </div>
+</div>

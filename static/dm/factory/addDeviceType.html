@@ -1,0 +1,61 @@
+<div id="addDeviceTypeContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#applyDeviceIds">设备申请</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">新增设备型号</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backApplyDevice();">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="addDeviceType" role="form" style="align-content: center">           	
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="code"><span class="requiredValue">设备型号名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="code" id="code" placeholder="请输入设备型号名称" />
+                    </div>
+                </div>
+             	<div class="form-group">
+                    <label class="col-sm-3 control-label" for="serialCode"><span class="requiredValue">序列号ID代码:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="serialCode" id="serialCode" placeholder="请输入序列号ID代码" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="queryDeviceType"><span class="requiredValue">设备型号类型:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select id="queryDeviceType" class="form-control" name="type">
+                        	<option value="1">RC</option>
+                        	<option value="2">基础版</option>
+                        	<option value="3">兼容版</option>
+                        	<option value="4">加强版</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="status"><span class="requiredValue">状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select id="status" class="form-control" name="status">
+                        	<option value="1">量产</option>
+                        	<option value="2">在研</option>                        	
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="description"><span class="requiredValue">设备型号描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="description" id="description" placeholder="请输入设备型号描述" />
+                    </div>
+                </div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>

@@ -1,0 +1,52 @@
+#applyDeviceIdsContainer #applyDeviceForm .control-label {
+  text-align: left;
+}
+#applyDeviceIdsContainer .wire {
+  float: left;
+  width: 5px;
+  height: 23px;
+  background: #44b549;
+  margin: 1px 5px 0 0;
+}
+#applyDeviceIdsContainer .form-horizontal .form-group {
+  margin: 20px 0 0 35px;
+}
+#applyDeviceIdsContainer .form-horizontal .form-group .apply {
+  margin-left: 175px;
+  width: 120px;
+}
+#applyDeviceIdsContainer .form-horizontal:nth-child(1) {
+  margin-top: 40px;
+}
+#applyDeviceIdsContainer .apply,
+#applyDeviceIdsContainer .cancelApply,
+#applyDeviceIdsContainer .export {
+  display: inline-block;
+  font-size: 16px;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: 32px;
+  background: #44b549;
+  color: #fff;
+  padding: 0;
+  line-height: 32px;
+  float: left;
+}
+#applyDeviceIdsContainer .cancelApply {
+  margin: 20px 50px 0 300px;
+  width: 140px;
+}
+#applyDeviceIdsContainer .export {
+  width: 140px;
+  margin-top: 20px;
+}

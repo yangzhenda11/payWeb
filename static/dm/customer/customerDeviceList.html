@@ -1,0 +1,71 @@
+<div id="customerDeviceListContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#customer">服务商列表</a><span class="space"></span>
+                <a href="javascript:void(0);">服务商设备列表</a>
+			</div>
+			<button class="btn btn-primary" id="addbtn" onclick="getUpgradeAppVersion();">设备升级</button>
+            <button class="btn btn-danger hidden" id="unwrap" type="button" style="margin-right: 20px;" onclick="unBindCustomer();">解绑</button>
+		</div>
+	</div>
+    <div class="row" style="width: 100%;">
+    	<div class="col-sm-12 titleStyle">			
+        	<label class="searchText" for="queryDeviceId">设备编号</label><input type="text" id="queryDeviceId" class="special"/>&nbsp;&nbsp;
+        	<label class="searchText" for="queryDeviceType">设备类型</label><select id="queryDeviceType" class="specialselect"></select>
+        	<label class="searchText" for="appNameList">App名称</label><select id="appNameList" class="specialselect" onchange="customerChooseApp()"></select>
+        	<label class="searchText" for="connectState">连接状态</label>
+            <select id="connectState" class="specialselect">
+                <option value="0">全部</option>
+                <option value="1">已连接</option>
+            </select>
+            <button class="searchBtn" type="button" onclick="getDeviceList(1);">筛选</button>            
+		</div>
+        <div class="col-sm-12">
+        	<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+            <div class="panel panel-default">               
+                <table id="devicesTable" class="table">
+                    <thead>
+                        <tr class="thStyle">
+                            <th class="col-sm-1" style="text-align: center;"><input id='checkAllId' type='checkbox' onclick='checkAllId()'></th>
+                            <th class="col-sm-2">设备</th>
+                            <th class="col-sm-2">类型</th>
+                            <th class="col-sm-2">连接状态</th>
+                            <th class="col-sm-2">生产日期</th>
+                            <th class="col-sm-2">当前软件版本</th>
+                        </tr>
+                    </thead>
+                    <tbody id="devicesTbody" class="trStyle"></tbody>
+                </table>                
+            </div>
+        </div>
+        <div class="alignCenter">
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </div>
+    <div class="modal fade" id="confimUpgrade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<span class="modal_title">软件升级</span>
+				</div>
+	            <div class="modal-body">
+	                <table id='upgradeTbl' class="table-bordered table table-striped" style="text-align: center">
+	                    <thead>
+		                    <tr class="thStyle">
+		                        <th class="col-sm-1" style="text-align: center"><input id='checkAllApp' type='checkbox' onclick='checkAllApp()'></th>
+		                        <th class="col-sm-1" style="text-align: center">软件</th>
+		                        <th class="col-sm-1" style="text-align: center">升级版本</th>
+		                    </tr>
+	                    </thead>
+	                    <tbody></tbody>
+	                </table>
+	            </div>
+	            <div class="modal-footer">
+					<button type="button" class="saveBtn" onclick="deviceUpgradeConfirm()">确认升级</button>
+				</div>	
+	        </div>
+	    </div>
+	</div>	
+</div>

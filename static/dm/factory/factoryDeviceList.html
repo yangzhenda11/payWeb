@@ -1,0 +1,38 @@
+<div id="deviceListContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">生产设备列表</a>
+			</div>			
+		</div>
+	</div>
+    <div class="row" style="width: 100%;">
+    	<div class="col-sm-12 titleStyle">
+        	<label class="searchText" for="queryDeviceId">设备编号</label><input type="text" id="queryDeviceId" class="special" style="width: 160px;"/>
+        	<label class="searchText" for="batchNum">生产批次号</label><input type="text" id="batchNum" class="special"/>
+        	<label class="searchText" for="queryDeviceType">设备类型</label></span><select id="queryDeviceType" class="specialselect"></select>        	
+            <button class="searchBtn" type="button" onclick="getDeviceList(1);">筛选</button>
+		</div>
+        <div class="col-sm-12">
+        	<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+            <div class="panel panel-default panel-primary">            	
+                <table id="devicesTable" class="table">
+                    <thead>
+                        <tr class="thStyle">
+	                        <th class="col-sm-2" style="padding-left: 20px;">设备编号</th>
+	                        <th class="col-sm-2">生产批次号</th>
+	                        <th class="col-sm-1">设备类型</th>
+	                        <th class="col-sm-1">设备型号</th>
+	                        <th class="col-sm-2" style="text-align: center;">生产日期</th>	                        
+	                    </tr>
+                    </thead>
+                    <tbody id="devicesTbody" class="trStyle"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="alignCenter">
+            <div id="pagination" class="pagination"></div>
+        </div>
+   </div>   
+</div>
+	   

@@ -1,0 +1,99 @@
+<div class="modal-dialog" id="modalDetail">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">资源包详情</span>
+		</div>
+		<div class="modal-body">
+			<table id='editSp' class="table-bordered table table-striped">
+				<tbody id="versionTBody">
+					<tr>
+						<td class="col-sm-1">文件名</td>
+						<td class="col-sm-2" id="fileName"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">版本</td>
+						<td class="col-sm-1" id="version"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">类型</td>
+						<td class="col-sm-1" id="typeName"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">是否同步</td>
+						<td class="col-sm-1" id="status"></td>
+					</tr>
+					<!--<tr>
+						<td class="col-sm-1">oss文件名称</td>
+						<td class="col-sm-1" id="ossFileName"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">oss文件路径</td>
+						<td class="col-sm-1" id="ossPath"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">oss访问URL</td>
+						<td class="col-sm-1" id="ossUrl"></td>
+					</tr>-->
+					<tr>
+						<td class="col-sm-1">下载文件</td>
+						<td class="col-sm-1">
+							<a href="javascript:void(0);" onclick="downloadFile()">点击下载文件</a>
+						</td>
+					</tr>
+					<input class="hidden" type="text" id="loadurl" value="" />
+				</tbody>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="saveBtn" data-dismiss="modal">关闭</button>
+		</div>
+	</div>
+</div>
+
+<div class="modal-dialog" id="modalBody">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">编辑资源包信息</span>
+		</div>
+		<form action="/customer/add" method="post" class="form-horizontal" role="form" id="editSystemInfor">
+			<div class="modal-body">
+				<input type="text" class="form-control hidden" id="editDictionaryId" name="id" placeholder="">
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">文件名:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editFileName" name="fileName" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">版本号:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editVersion" name="version" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">类型:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" disabled="" name="typeName" id="editTypeName" value="" />
+						<input type="text" class="form-control hidden" disabled="" name="ossUrl" id="editOssUrl" value="" />
+						<input type="text" class="form-control hidden" id="packType" name="type">
+						<input type="text" class="form-control hidden" id="editID" name="id">
+						<input type="text" class="form-control hidden" id="localPath" name="localPath" value="" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label">下载文件:</div>
+					<div class="col-sm-6" style="margin-top: 9px;">
+						<a href="javascript:void(0);" onclick="downloadFile(1)">点击下载文件</a>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="saveBtn">保存</button>
+				<button class="backBtn" data-dismiss="modal" style="margin-left: 20px;">取消</button>
+			</div>	
+		</form>
+	</div>
+	<!-- /.modal-content -->
+</div>

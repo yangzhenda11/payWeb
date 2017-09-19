@@ -1,0 +1,40 @@
+<div id="roleUserListContainer" style="padding-bottom: 20px;">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+        		<a href="index.html#roleList">系统角色管理</a><span class="space"></span>
+        		<a href="javascript:void(0);">角色用户列表</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="gobackRole();">返回</button>
+		</div>
+	</div>
+	<!--中间部分内容-->					 
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">
+        	<label class="searchText" for="userName">用户名称</label><input id="userName" type="text" class="special">
+        	<button class="searchBtn" id="querybtn" onclick="getRoleUserList(1);">查询</button>
+		</div>	
+		<div class="col-sm-12">
+			<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+            <div class="panel panel-default">
+                <table id="roleUserTable" class="table alignCenter">
+                    <thead class="theadStyle">
+                        <tr>
+                        	<th class="col-sm-1" style="text-align: center;">编号</th>
+                        	<th class="col-sm-2">用户名</th>
+                            <th class="col-sm-2">角色名称</th>                                   
+                            <th class="col-sm-3">所属服务商</th>
+                            <th class="col-sm-2">启用状态</th>
+                            <th class="col-sm-3">创建时间</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dictionaryTbody"></tbody>
+                </table>		                            
+            </div>
+            <div class="alignCenter">
+                <div id="pagination" class="pagination"></div>
+            </div>
+		</div>
+	</div>
+</div>
+			

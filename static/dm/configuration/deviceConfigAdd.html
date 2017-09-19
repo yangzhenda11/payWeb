@@ -1,0 +1,141 @@
+<div id="addDeviceConfigContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#deviceConfigList">设备配置列表</a><span class="space"></span>
+				<a href="javascript:void(0);">新增配置</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="goDeviceConfigList();">返回</button>
+		</div>
+	</div>					
+	<div class="row">
+		<div class="col-sm-12 textEdit">
+		<form class="form-horizontal" role="form" id="deviceConfigForm">
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="configName"><span class="requiredValue">配置名称:</span><span class="required">*</span></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="configName" id="configName" placeholder="请输入配置名称" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="payChannelId"><span class="requiredValue">支付通道配置:</span><span class="required">*</span></label>
+                <div class="col-sm-5">
+                    <select id="payChannelId" name="payChannelId"></select>
+                </div>
+            </div>    
+            <div class="form-group">
+				<label class="col-sm-3 control-label"><span class="requiredValue">扫码配置:</span><span class="required">*</span></label>
+				<div class="col-sm-5" style="vertical-align: middle;">
+					<input type="radio" id="scan1" name="scan" value="1"><label for="scan1">主扫(扫码)</label>
+                    <input type="radio" id="scan2" name="scan" value="2"  style="margin-left: 20px;" checked="checked"><label for="scan2">被扫(刷卡)</label>
+                    <input type="radio" id="scan3" name="scan" value="3" style="margin-left: 20px;"><label for="scan3">主扫+被扫</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="feeKeyword"><span class="requiredValue">金额关键字:</span><span class="required">*</span></label>
+				<div class="col-sm-5">
+					<input type="text" class="subvalue form-control" id="feeKeyword" name="feeKeyword" value="总金额" placeholder="请输入金额关键字" />						
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" for="exclusionKeyword"><span class="requiredValue">排除关键字:</span><span class="required">*</span></label>
+				<div class="col-sm-5">
+				<input type="text" id="exclusionKeyword" name="exclusionKeyword" class="form-control subvalue" value="退款" placeholder="请输入排除关键字" />
+				</div>
+			</div>
+			<!--<div class="form-group">-->
+				<!--<div class="col-xs-2 col-xs-offset-1">-->
+					<!--<span class="wire"></span>-->
+					<!--<p>服务商</p>-->
+				<!--</div>-->
+				<!--<div class="col-xs-5">-->
+					<!--<select id="customerId" class="form-control" name="customerId"></select>-->
+				<!--</div>-->
+			<!--</div>-->						
+			<div class="form-group" style="display: none;">
+				<div class="col-xs-2 col-xs-offset-1">
+					<span class="wire"></span>
+					<p>支付方式</p>
+				</div>
+				<div class="m_50">
+					<input id="wxpay" name="payTypeKeyword" type="checkbox" value="wxpay" checked="checked"/>微信
+                    <input id="alipay" name="payTypeKeyword" type="checkbox" value="alipay" checked="checked"/>支付宝
+				</div>
+			</div>
+			<div class="form-group" style="display: none;">
+				<div class="col-xs-2 col-xs-offset-1">
+					<span class="wire"></span>
+					<p>打印机配置</p>
+				</div>
+				<div class="col-xs-5 m_50">
+					<span class="subhead" >接口类型</span>
+					<select id="interfaceTypeseletId" name="interfaceType" class="form-control subvalue">
+                        <option selected="selected" value="Serial">串口RS232</option>
+                        <option value="Parallel">并口</option>
+                        <option value="USB">USB</option>
+                        <option value="Net">网络</option>
+                    </select>
+				</div>
+				<div class="col-xs-5 m_25" style="display: none;">
+					<span class="subhead">端口号</span>
+					<input type="text" id="port" name="port" class="form-control subvalue" value="9100"/>
+				</div>
+				<div class="col-xs-5 m_25" style="display: none;">
+					<span class="subhead">IP</span>
+					<input type="text" id="ip" name="ip" class="form-control subvalue" value="192.168.22.222"/>
+				</div>
+				<div class="col-xs-5 m_25">
+					<span class="subhead">波特率</span>
+					<select id="baudrateSelectId" name="baudrate" class="form-control subvalue">
+                        <option value="50">50</option>
+                        <option value="75">75</option>
+                        <option value="100">100</option>
+                        <option value="150">150</option>
+                        <option value="300">300</option>
+                        <option value="600">600</option>
+                        <option value="1200">1200</option>
+                        <option value="2400">2400</option>
+                        <option value="4800">4800</option>
+                        <option value="9600" selected="selected">9600</option>
+                        <option value="19200">19200</option>
+                        <option value="38400">38400</option>
+                    </select>
+				</div>
+				<div class="col-xs-5 m_25">
+					<span class="subhead">图片打印类型</span>
+					<select id="imagePrintType" name="imagePrintType" class="form-control subvalue">
+                        <option value="EscPos">EscPos</option>
+                        <option value="Gs">Gs</option>
+                        <option value="Ascii" selected="selected">ASCII</option>
+                        <option value="CustomAscii">CustomASCII</option>
+                    </select>
+				</div>
+				<div class="col-xs-5 m_25">
+					<span class="subhead">头切刀</span>
+					<input type="radio" name="headerCut" style="margin-top: 13px;" id="headerCut1" value="1"><label for="headerCut1">是</label>
+                    <input type="radio" name="headerCut" id="headerCut0" value="0"  style="margin-left: 25px;"checked="checked"><label for="headerCut0">否</label>
+				</div>
+				<div class="col-xs-5 m_25">
+					<span class="subhead">尾切刀</span>
+					<input type="radio" name="footerCut" id="footerCut1" style="margin-top: 13px;" value="1"  checked="checked"><label for="footerCut1">是</label>
+                                <input type="radio" name="footerCut" id="footerCut0" style="margin-left: 25px;" value="0"><label for="footerCut0">否</label>
+				</div>
+				<div class="col-xs-5 m_25">
+					<span class="subhead">顶部边距(单位:行)</span>
+					<input type="text" id="topMargin" name="topMargin" class="form-control subvalue" value="0"/>
+				</div>
+				<div class="col-xs-5 m_25">
+					<span class="subhead">底部边距(单位:行)</span>
+					<input type="text" id="bottomMargin" name="bottomMargin" class="form-control subvalue" value="5"/>
+				</div>
+			</div>
+			<div class="form-group saveStyle">
+				<div class="col-xs-7 col-xs-offset-1" style="text-align: center;">
+					<button type="submit" class="saveBtn" >保存</button>
+				</div>
+			</div>
+		</form>
+		</div>
+	</div>
+</div>
+	

@@ -1,0 +1,169 @@
+<div class="modal-dialog" id="storeAdd">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">新增客户</span>
+		</div>
+		<form class="form-horizontal" role="form" id="storeModal">
+		<div class="modal-body">
+				<div class="form-group" style="display: none;">
+					<div for="parentId" class="col-sm-4 control-label">parentId</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="parentId" name="parentId" placeholder="">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div for="abb" class="col-sm-4 control-label"><span class="requiredValue">客户简称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="abb" name="abb" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">客户全称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" name="name" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="type" class="col-sm-4 control-label">客户类型:</div>
+					<div class="col-sm-6">
+						<input type="radio" name="type" id="type1" value="1" style="margin-top: 12px;"><label for="type1">服务商</label>
+						<input type="radio" name="type" value="2" id="type2" checked="checked" style="margin-left: 25px;"><label for="type2">商户</label>
+						<input type="radio" name="type" value="3" id="type3" style="margin-left: 25px;"><label for="type3">门店</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="contact" class="col-sm-4 control-label"><span class="requiredValue">联系人:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="contact" name="contact" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mobile" class="col-sm-4 control-label"><span class="requiredValue">电话:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="mobile" name="mobile" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">邮箱:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="mail" name="mail" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="address" class="col-sm-4 control-label"><span class="requiredValue">地址:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="address" name="address" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label">使用状态:</div>
+					<div class="col-sm-6">
+						<input type="radio" name="enableStatus" id="enableStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="enableStatus" value="0" id="enableStatus0" style="margin-left: 25px;"><label for="enableStatus0">禁用</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label">是否测试:</div>
+					<div class="col-sm-6">
+						<input type="radio" name="testStatus" id="testStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="testStatus1">是</label>
+						<input type="radio" name="testStatus" id="testStatus0" value="0" style="margin-left: 38px;"><label for="testStatus0">否</label>
+					</div>
+				</div>
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="saveBtn">保存</button>
+			<button class="backBtn" data-dismiss="modal" style="margin-left: 20px;">取消</button>
+		</div>	
+		</form>
+	</div>
+</div>
+
+<div class="modal-dialog" id="storeEdit">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">修改客户信息</span>
+		</div>
+		<form action="/customer/modify" method="post" class="form-horizontal" role="form" id="updateStore">
+		<div class="modal-body">				
+				<div class="form-group" style="display: none;">
+					<div for="parentId" class="col-sm-4 control-label">parentId</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="storeparentId" name="parentId" placeholder="">
+					</div>
+				</div>
+				<div class="form-group" style="display: none;">
+					<div for="parentId" class="col-sm-4 control-label">id</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="storeId" name="id" placeholder="">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div for="abb" class="col-sm-4 control-label"><span class="requiredValue">客户简称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editAbb" name="abb" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="editName" class="col-sm-4 control-label"><span class="requiredValue">客户全称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editName" name="name" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="type" class="col-sm-4 control-label">客户类型:</div>
+					<div class="col-sm-6">
+						<input type="radio" name="type" id="editType1" value="1" style="margin-top: 12px;"><label for="editType1">服务商</label>
+						<input type="radio" name="type" value="2" id="editType2" style="margin-left: 25px;"><label for="editType2">商户</label>
+						<input type="radio" name="type" value="3" id="editType3" style="margin-left: 25px;"><label for="editType3">门店</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="editContact" class="col-sm-4 control-label"><span class="requiredValue">联系人:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editContact" name="contact" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="editMobile" class="col-sm-4 control-label"><span class="requiredValue">电话:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editMobile" name="mobile" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="editMail" class="col-sm-4 control-label"><span class="requiredValue">邮箱:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editMail" name="mail" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="editAddress" class="col-sm-4 control-label"><span class="requiredValue">地址:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editAddress" name="address" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label">状态:</div>
+					<div class="col-sm-6">
+						<input type="radio" name="enableStatus" id="enableStatus1" value="1" style="margin-top: 12px;"><label for="enableStatus1">是</label>
+						<input type="radio" name="enableStatus" value="0" id="enableStatus0"  style="margin-left: 25px;"checked="checked"><label for="enableStatus0">否</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label">是否测试:</div>
+					<div class="col-sm-6">
+						<input type="radio" name="testStatus" id="testStatus1" value="1" style="margin-top: 12px;"><label for="testStatus1">是</label>
+						<input type="radio" name="testStatus" id="testStatus0" value="0"  style="margin-left: 25px;"checked="checked"><label for="testStatus0">否</label>
+					</div>
+				</div>
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="saveBtn" style="margin-right: 20px;">保存</button>
+			<button class="backBtn" data-dismiss="modal">取消</button>
+		</div>	
+		</form>
+	</div>
+</div>

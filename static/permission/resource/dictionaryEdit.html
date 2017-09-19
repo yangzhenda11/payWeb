@@ -1,0 +1,165 @@
+<div id="dictionaryAddContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#dictionaryList">字典管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">新增字典</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backDictionary(0);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="addDictionary" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="dictionaryName"><span class="requiredValue">字典名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="dictionaryName" id="dictionaryName" placeholder="请输入字典名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="dictionaryCode"><span class="requiredValue">字典编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="dictionaryCode" id="dictionaryCode" placeholder="请输入字典编号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 control-label" style="padding-top: 0;">所属父级字典:</br><span style="color: red;">(默认为父级字典)</span></div>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="addparentId" name="parentId"></select>
+                    </div>
+               	</div> 
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="description"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="description" id="description" placeholder="请输入该字典的描述">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="enableStatus0" style="margin-left: 25px;" ><label for="enableStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>
+<div id="dictionaryEditContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#dictionaryList">字典管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">编辑字典</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backDictionary(1);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="editDictionary" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editDictionaryName"><span class="requiredValue">字典名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="text" class="form-control hidden" id="editDictionaryId" name="id" placeholder="">
+                        <input type="text" class="form-control" name="dictionaryName" id="editDictionaryName" placeholder="请输入字典名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editDictionaryCode"><span class="requiredValue">字典编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="dictionaryCode" id="editDictionaryCode" disabled="" placeholder="请输入字典编号">
+                        <input type="text" class="form-control hidden" name="dictionaryCode" id="editDictionaryCodes" placeholder="请输入字典编号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 control-label" style="padding-top: 0;">所属父级字典:</br><span style="color: red;">(默认为父级字典)</span></div>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="editParentId" name="parentId"></select>
+                    </div>
+               	</div> 
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editDescription"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="description" id="editDescription" placeholder="请输入该字典的描述">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="editStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="editStatus0">禁用</label>
+                    </div>
+                </div> 
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>              
+    	</div>
+	</div>
+</div>
+<div id="dictionaryDetailContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#dictionaryList">字典管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">字典详情</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backDictionary(1);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="editUserForm" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="dictionaryNameDetails"><span class="requiredValue">字典名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="dictionaryName" id="dictionaryNameDetails" placeholder="请输入字典名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="dictionaryCodeDetails"><span class="requiredValue">字典编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="dictionaryCode" id="dictionaryCodeDetails" disabled="" placeholder="请输入字典编号">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="parentName"><span class="requiredValue">所属父级字典:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="" id="parentName" placeholder="所属父级字典">
+                    </div>
+               	</div> 
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="descriptionDetails"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="description" id="descriptionDetails" placeholder="请输入该字典的描述">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="editStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="editStatus0">禁用</label>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="createdTime"><span class="requiredValue">创建时间:</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="createdTime" id="createdTime">
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>

@@ -1,0 +1,401 @@
+a {
+  color: #459ae9;
+}
+a:hover {
+  color: #459ae9;
+}
+#billSummaryContainer #billEmpty {
+  width: 100%;
+  height: 100%;
+}
+#billSummaryContainer #billEmpty .billImg {
+  display: block;
+  margin: 120px auto 0;
+  width: 180px;
+}
+#billSummaryContainer #customerDiv {
+  display: none;
+  position: absolute;
+  width: 300px;
+  min-height: 200px;
+  background: #ccc;
+  border: 1px solid #ccc;
+  top: 30px;
+  left: 0;
+  z-index: 999;
+}
+#billSummaryContainer .collectDiv {
+  max-width: 960px;
+  overflow: auto;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  height: 140px;
+  display: inline-block;
+}
+#billSummaryContainer .collectDiv #collectValue {
+  height: 120px;
+  width: auto;
+  display: inline-block;
+}
+#billSummaryContainer .collectDiv #collectValue .collectPay,
+#billSummaryContainer .collectDiv #collectValue .collectPayTotal {
+  display: inline-block;
+  border-right: 1px solid #ddd;
+  width: 159px;
+  height: 90px;
+  margin: 20px 0 10px 0;
+  color: #999;
+}
+#billSummaryContainer .collectDiv #collectValue .collectPay p,
+#billSummaryContainer .collectDiv #collectValue .collectPayTotal p {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  height: 24px;
+}
+#billSummaryContainer .collectDiv #collectValue .collectPayTotal {
+  border: none;
+  color: #555;
+}
+#billSummaryContainer .tableDiv {
+  max-width: 960px;
+  margin-top: 30px;
+  overflow: auto;
+  border-radius: 5px;
+  height: auto;
+  display: inline-block;
+}
+#billSummaryContainer .tableDiv #tableValue {
+  height: auto;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+#billSummaryContainer .tableDiv #tableValue th {
+  background: #f2f2f2;
+  font-weight: normal;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+}
+#billSummaryContainer .tableDiv #tableValue .borderL {
+  border-left: 1px solid #efefef;
+}
+#billSummaryContainer .tableDiv #tableValue .boderBot {
+  border-bottom: 1px solid #efefef;
+}
+#billSummaryContainer .tableDiv #tableValue tbody td {
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+}
+#billSummaryContainer .tableDiv #tableValue tbody span {
+  display: block;
+  height: 16px;
+  line-height: 16px;
+  margin: 10px 0;
+  border-right: 1px solid #e4e4e4;
+}
+#billSummaryContainer .tableDiv #tableValue .payTitle {
+  width: 270px;
+}
+#billSummaryContainer .tableDiv #tableValue #tableTitleTr {
+  font-size: 14px;
+}
+#billSummaryContainer .weixinColor,
+#billSummaryContainer .weixinColorLine {
+  color: #00c800;
+  cursor: pointer;
+}
+#billSummaryContainer .aliColor,
+#billSummaryContainer .aliColorLine {
+  color: #0398e0;
+  cursor: pointer;
+}
+#billSummaryContainer .baiduColor,
+#billSummaryContainer .baiduColorLine {
+  color: #ec443d;
+  cursor: pointer;
+}
+#billSummaryContainer .pufaColor,
+#billSummaryContainer .pufaColorLine {
+  color: #003473;
+  cursor: pointer;
+}
+#billSummaryContainer .swiftColor,
+#billSummaryContainer .swiftColorLine {
+  color: #51c2f0;
+  cursor: pointer;
+}
+#billSummaryContainer .totalColor,
+#billSummaryContainer .totalColorLine {
+  color: #d7ae4b;
+  cursor: pointer;
+}
+#billSummaryContainer .weixinColorLine:hover {
+  text-decoration: underline;
+}
+#billSummaryContainer .aliColorLine:hover {
+  text-decoration: underline;
+}
+#billSummaryContainer .baiduColorLine:hover {
+  text-decoration: underline;
+}
+#billSummaryContainer .swiftColorLine:hover {
+  text-decoration: underline;
+}
+#billSummaryContainer .pufaColorLine:hover {
+  text-decoration: underline;
+}
+#billSummaryContainer .totalColorLine:hover {
+  text-decoration: underline;
+}
+#billSummaryContainer .titleStyle {
+  text-align: left;
+}
+#billSummaryContainer .titleStyle label {
+  float: left;
+  margin: 6px 5px 0 10px;
+}
+#billSummaryContainer .titleStyle #queryDeviceId {
+  float: left;
+}
+#billSummaryContainer .titleStyle #summaryType {
+  width: 90px;
+  float: left;
+}
+#billSummaryContainer .titleStyle #payTypeValue {
+  position: relative;
+  float: left;
+}
+#billSummaryContainer .titleStyle #payTypeValue #payType {
+  width: 80px;
+  float: left;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 12px;
+  line-height: 24px;
+  text-align: left;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#billSummaryContainer .titleStyle #payTypeValue #payTypeItem {
+  position: absolute;
+  top: 34px;
+  left: 0px;
+  z-index: 100;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 0;
+  width: 120px;
+  display: none;
+  padding: 5px 0 15px;
+}
+#billSummaryContainer .titleStyle #payTypeValue #payTypeItem li {
+  display: block;
+}
+#billSummaryContainer .titleStyle #payTypeValue #payTypeItem li label {
+  width: 120px;
+  height: 20px;
+  padding-left: 10px;
+}
+#billSummaryContainer .titleStyle #payTypeValue #payTypeItem li label input {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+#billSummaryContainer .titleStyle #cusName {
+  margin-left: 40px;
+}
+#billSummaryContainer .titleStyle #querybtn {
+  margin-bottom: 5px;
+}
+#billSummaryContainer .titleStyle #queryDeviceIdBtn {
+  margin: 12px 5px 0 40px;
+}
+#billSummaryContainer .titleStyle #queryDeviceId {
+  margin-top: 7px;
+  width: 230px;
+}
+#deviceBillContainer #billEmpty {
+  width: 100%;
+  height: 100%;
+}
+#deviceBillContainer #billEmpty .billImg {
+  display: block;
+  margin: 120px auto 0;
+  width: 180px;
+}
+#deviceBillContainer .titleStyle label {
+  margin: 6px 5px 0 10px;
+}
+#deviceBillContainer .titleStyle #payTypeValue {
+  position: relative;
+  display: inline-block;
+  top: 10px;
+}
+#deviceBillContainer .titleStyle #payTypeValue #payType {
+  width: 80px;
+  float: left;
+  height: 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 12px;
+  line-height: 24px;
+  text-align: left;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+#deviceBillContainer .titleStyle #payTypeValue #payTypeItem {
+  position: absolute;
+  top: 34px;
+  left: 0px;
+  z-index: 100;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 0;
+  width: 120px;
+  display: none;
+  padding: 5px 0 15px;
+}
+#deviceBillContainer .titleStyle #payTypeValue #payTypeItem li {
+  display: block;
+}
+#deviceBillContainer .titleStyle #payTypeValue #payTypeItem li label {
+  width: 120px;
+  height: 20px;
+  padding-left: 10px;
+  text-align: left;
+}
+#deviceBillContainer .titleStyle #payTypeValue #payTypeItem li label input {
+  margin-right: 5px;
+  margin-top: 5px;
+  display: inline-block;
+}
+#deviceBillContainer .tableDiv {
+  clear: both;
+  max-width: 960px;
+  overflow: auto;
+  border-radius: 5px;
+  height: auto;
+  display: inline-block;
+}
+#deviceBillContainer .tableDiv #tableValue {
+  height: auto;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+#deviceBillContainer .tableDiv #tableValue th {
+  background: #f2f2f2;
+  font-weight: normal;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+}
+#deviceBillContainer .tableDiv #tableValue .borderL {
+  border-left: 1px solid #efefef;
+}
+#deviceBillContainer .tableDiv #tableValue .boderBot {
+  border-bottom: 1px solid #efefef;
+}
+#deviceBillContainer .tableDiv #tableValue tbody td {
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+}
+#deviceBillContainer .tableDiv #tableValue tbody span {
+  display: block;
+  height: 16px;
+  line-height: 16px;
+  margin: 10px 0;
+  border-right: 1px solid #e4e4e4;
+}
+#deviceBillContainer .tableDiv #tableValue .payTitle {
+  width: 200px;
+}
+#deviceBillContainer .tableDiv #tableValue #tableTitleTr {
+  font-size: 14px;
+}
+#deviceBillContainer .weixinColor,
+#deviceBillContainer .weixinColorLine {
+  color: #00c800;
+  cursor: pointer;
+}
+#deviceBillContainer .aliColor,
+#deviceBillContainer .aliColorLine {
+  color: #0398e0;
+  cursor: pointer;
+}
+#deviceBillContainer .baiduColor,
+#deviceBillContainer .baiduColorLine {
+  color: #ec443d;
+  cursor: pointer;
+}
+#deviceBillContainer .pufaColor,
+#deviceBillContainer .pufaColorLine {
+  color: #003473;
+  cursor: pointer;
+}
+#deviceBillContainer .swiftColor,
+#deviceBillContainer .swiftColorLine {
+  color: #51c2f0;
+  cursor: pointer;
+}
+#deviceBillContainer .totalColor,
+#deviceBillContainer .totalColorLine {
+  color: #d7ae4b;
+  cursor: pointer;
+}
+#billDetailContainer .billSearchText {
+  float: left;
+  margin: 5px 5px 0 13px;
+}
+#billDetailContainer #reportrange {
+  border-radius: 4px;
+}
+#billDetailContainer #queryDeviceId {
+  float: left;
+  width: 220px;
+  margin-top: 7px;
+}
+#billDetailContainer #payType,
+#billDetailContainer #payStatus {
+  float: left;
+  width: 100px;
+}
+#billDetailContainer #idNumber {
+  float: left;
+  margin: 13px 5px 0 13px;
+}
+#billDetailContainer #querybtn {
+  margin-bottom: 5px;
+  margin-left: 10px;
+  float: left;
+}
+#billDetailContainer .alignCenter {
+  text-align: center;
+}
+#refoundDetailsContainer .refoundSearchText {
+  float: left;
+  margin: 5px 5px 0 10px;
+}
+#refoundDetailsContainer #reportrange {
+  border-radius: 4px;
+}
+#refoundDetailsContainer #queryDeviceId {
+  float: left;
+  width: 155px;
+}
+#refoundDetailsContainer #payType {
+  width: 80px;
+  float: left;
+}
+#refoundDetailsContainer #querybtn {
+  margin-left: 15px;
+  float: left;
+}
+#refoundDetailsContainer .alignCenter {
+  text-align: center;
+}
+#refoundDetailsContainer #customer_name {
+  margin-left: 10px;
+}

@@ -1,0 +1,66 @@
+<div id="billDetailContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">支付明细</a>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">
+			<label class="billSearchText" for="customerId">商户名称</label>
+			<select class="specialselect" id="customerId" name="customerId"></select>			
+        	<span class="billSearchText">日期</span>
+			<div id="reportrange" class="pull-left dateRange">
+				<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+				<span id="searchDateRange"></span>
+				<b class="caret"></b>
+			</div>
+        	<label class="billSearchText" for="payType">支付方式</label>
+        	<select id="payType" class="specialselect">
+                <option value="0">全部订单</option>
+                <option value="1">微信支付</option>
+                <option value="2">支付宝支付</option>
+                <option value="11">威富通支付</option>
+                <option value="4">百度钱包支付</option>
+                <option value="3">浦发银行支付</option>
+           	</select>
+            <label class="billSearchText" for="payStatus">支付状态</label>
+        	<select id="payStatus" class="specialselect">
+                <option value="0">全部订单</option>
+                <option value="1">未支付订单</option>
+                <option value="2">已支付订单</option>
+           	</select>
+        	<button class="searchBtn" id="querybtn" onclick="searchbillDetail(1);">查询</button>
+        	<label id="idNumber" for="queryDeviceId">设备编号</label>
+        	<input id="queryDeviceId" type="text" class="special">
+			<!--<span style="float: left;margin: 14px 5px 0 15px;">设备类型</span>
+        	<select id="queryDeviceType" class="specialselect" style="width: 60px;float: left;margin-top: 10px;"></select>-->
+    	</div>
+		<div class="col-sm-12">
+            <div class="panel panel-default">
+                <table id="billDetailTable" class="table alignCenter" style="table-layout: fixed;">
+                    <thead class="theadStyle">
+                        <tr>
+                        	<th class="alignCenter" style="width: 120px;">订单生成时间</th>                            
+                            <th class="alignCenter" style="width: 150px;">订单号</th>
+                            <th class="alignCenter" style="width: 160px;">设备编号</th>
+                            <th class="alignCenter" style="width: 240px;">商户名称</th>
+                            <th style="width: 145px;padding-left: 30px;">支付明细</th>                            
+                            <th class="alignCenter" style="width: 75px;">状态</th>                            
+                            <th class="alignCenter" style="width: 75px;">退款</th>
+                        </tr>
+                    </thead>
+                    <tbody id="billDetailTbody"></tbody>
+                </table>
+            </div>
+            <!--<div id="export" class="hidden" style="text-align: right;margin-top: 10px;">
+            	<a href="javascript:void(0)">点击导出excel表格</a>
+            </div>-->
+            <div class="alignCenter">
+                <div id="pagination" class="pagination"></div>
+            </div>
+        </div>
+	</div>
+</div>
+			

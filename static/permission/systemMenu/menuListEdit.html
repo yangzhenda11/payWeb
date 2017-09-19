@@ -1,0 +1,247 @@
+<div id="menuAddContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);" onclick="backMenuList();">菜单管理</a><span class="space"></span>
+				<a href="javascript:void(0);"><span class="setSystemName"></span>新增菜单</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backMenuList();">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="addMenu" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addMenuName"><span class="requiredValue">菜单名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control hidden" id="addLoginUserId" name="loginUserId" placeholder="" />
+						<input type="text" class="form-control" id="addMenuName" name="menuName" placeholder="请输入菜单名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addMenuCode"><span class="requiredValue">菜单编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addMenuCode" name="menuCode" placeholder="请输入菜单编号" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addMenuCode"><span class="requiredValue">菜单所属系统:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" disabled="" id="addTopBarName" name="topBarName" placeholder="" />
+						<input type="text" class="form-control hidden" id="addTopBarCode" name="topBarCode" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addUrl">url地址</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addUrl" name="url" placeholder="请输入url地址" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addIcon">菜单图标</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addIcon" name="icon" placeholder="请输入菜单图标名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addparentId"><span class="requiredValue">所属父级菜单:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="addparentId" name="parentId"></select>
+                    </div>
+               	</div>
+               	<div class="form-group">
+                    <label class="col-sm-3 control-label" for="addType"><span class="requiredValue">类型:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="addType" name="type">
+							<option value="1">普通菜单</option>
+							<option value="2">权限菜单</option>
+							<option value="3">权限设置菜单</option>
+						</select>
+                    </div>
+                </div>
+               	<div class="form-group">
+					<label class="col-sm-3 control-label" for="addDescription"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="addDescription" name="description" placeholder="请输入描述" />
+					</div>
+				</div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="enableStatus0" style="margin-left: 25px;" ><label for="enableStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>
+
+<div id="menuEditContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);" onclick="backMenuList();">菜单管理</a><span class="space"></span>
+				<a href="javascript:void(0);"><span class="setSystemName"></span>菜单修改</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backMenuList();">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="editMenu" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editMenuName"><span class="requiredValue">菜单名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control hidden" id="editLoginUserId" name="loginUserId" placeholder="" />
+						<input type="text" class="form-control" id="editMenuName" name="menuName" placeholder="请输入菜单名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editMenuCodes"><span class="requiredValue">菜单编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="text" class="form-control" disabled="" id="editMenuCodes" name="menuCode" placeholder="" />
+						<input type="text" class="form-control hidden" id="editMenuCode" name="menuCode" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editTopBarName"><span class="requiredValue">菜单所属系统:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" disabled="" id="editTopBarName" name="topBarName" placeholder="" />
+						<input type="text" class="form-control hidden" id="editTopBarCode" name="topBarCode" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editUrl">url地址</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="editUrl" name="url" placeholder="请输入url地址" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editIcon">菜单图标</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="editIcon" name="icon" placeholder="请输入菜单图标" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editparentId"><span class="requiredValue">所属父级菜单:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="editparentId" name="parentId"></select>
+                    </div>
+               	</div>
+               	<div class="form-group">
+                    <label class="col-sm-3 control-label" for="editType"><span class="requiredValue">类型:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select class="form-control" id="editType" name="type">
+							<option value="1">普通菜单</option>
+							<option value="2">权限菜单</option>
+							<option value="3">权限设置菜单</option>
+						</select>
+                    </div>
+                </div>
+               	<div class="form-group">
+					<label class="col-sm-3 control-label" for="editDescription"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="editDescription" name="description" placeholder="请输入描述" />
+					</div>
+				</div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="enableStatus0" style="margin-left: 25px;"><label for="enableStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>
+
+<div id="menuDetaliContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);" onclick="backMenuList();">菜单管理</a><span class="space"></span>
+				<a href="javascript:void(0);"><span class="setSystemName"></span>菜单详情</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backMenuList();">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="editMenu" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="menuNameDetails"><span class="requiredValue">菜单名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+						<input type="text" class="form-control" id="menuNameDetails" name="menuName" placeholder="请输入菜单名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="menuCodeDetails"><span class="requiredValue">菜单编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="text" class="form-control" id="menuCodeDetails" name="menuCode" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="systemDetails"><span class="requiredValue">菜单所属系统:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="systemDetails" name="topBarName" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="urlDetails">url地址</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="urlDetails" name="url" placeholder="请输入url地址" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="iconDetails">菜单图标</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="iconDetails" name="icon" placeholder="请输入菜单图标" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="parentMenuDetails"><span class="requiredValue">所属父级菜单:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="parentMenuDetails" name="icon" placeholder="所属父级菜单" />
+                    </div>
+               	</div>
+               	<div class="form-group">
+                    <label class="col-sm-3 control-label" for="typeDetails"><span class="requiredValue">类型:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="typeDetails" name="icon" placeholder="类型" />
+                    </div>
+                </div>
+               	<div class="form-group">
+					<label class="col-sm-3 control-label" for="descriptionDetails"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="descriptionDetails" name="description" placeholder="请输入描述" />
+					</div>
+				</div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="enableStatus0" style="margin-left: 25px;"><label for="enableStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group">
+					<label class="col-sm-3 control-label" for="createdTimeDetails"><span class="requiredValue">创建时间:</span></label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="createdTimeDetails" name="createdTimeDetails" placeholder="创建时间" />
+					</div>
+				</div>
+            </form>            
+    	</div>
+	</div>
+</div>

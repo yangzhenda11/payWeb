@@ -1,0 +1,187 @@
+<div id="roleAddContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#roleList">系统角色管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">新增角色管理</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="gobackRole(0);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="addRole" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addRoleName"><span class="requiredValue">角色名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="roleName" id="addRoleName" placeholder="请输入角色名称" />
+                        <input type="text" class="form-control hidden" id="addUserId" name="userId" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addRoleName">角色所属父级角色:</label>
+                    <div class="col-sm-5">
+                    	<select name="parentId" class="form-control" id="addparentId"></select>
+                    </div>
+                </div>
+             	<div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">角色类型:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" name="roleType" id="addRoleType1" value="1" style="margin-top: 12px;" checked="checked"><label for="addRoleType1">管理员</label>						
+						<span id="roleType4" class="hidden">
+							<input type="radio" name="roleType" id="addRoleType4" value="4" style="margin-left: 10px;" ><label for="addRoleType4">系统管理员</label>
+						</span>
+						<span id="roleType3" class="hidden">
+							<input type="radio" name="roleType" id="addRoleType3" value="3" style="margin-left: 10px;" ><label for="addRoleType3">销售</label>					
+						</span>						
+						<input type="radio" name="roleType" id="addRoleType2" value="2" style="margin-left: 10px;" ><label for="addRoleType2">业务员</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="passwordRepeat"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" id="enableStatus0" value="0" style="margin-left: 25px;" ><label for="enableStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addDescription"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addDescription" name="description" placeholder="请输入该角色详情描述" />
+                    </div>
+                </div>                
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>
+<div id="rolrEditContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#roleList">系统角色管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">编辑系统角色</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="gobackRole(1);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="editRole" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editRoleName"><span class="requiredValue">角色名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control hidden" id="editRoleId" name="roleId" placeholder="">
+						<input type="text" class="form-control hidden" id="editUserId" name="userId" placeholder="">
+						<input type="text" class="form-control" id="editRoleName" name="roleName" placeholder="请输入角色名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addRoleName">角色所属父级角色:</label>
+                    <div class="col-sm-5">
+                    	<select name="parentId" class="form-control" id="editParentId"></select>
+                    </div>
+                </div>
+             	<div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">角色类型:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" name="roleType" id="editRoleType1" value="1" style="margin-top: 12px;" checked="checked" /><label for="editRoleType1">管理员</label>						
+						<span id="roleType4" class="hidden">
+							<input type="radio" name="roleType" id="editRoleType4" value="4" style="margin-left: 10px;" /><label for="editRoleType4">系统管理员</label>
+						</span>
+						<span id="roleType3" class="hidden">
+							<input type="radio" name="roleType" id="editRoleType3" value="3" style="margin-left: 10px;" ><label for="editRoleType3">销售</label>							
+						</span>
+						<input type="radio" name="roleType" id="editRoleType2" value="2" style="margin-left: 10px;" ><label for="editRoleType2">业务员</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="editStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="editStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editDescription"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="editDescription" name="description" placeholder="请输入该角色详情描述">
+                    </div>
+                </div>                
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>              
+    	</div>
+	</div>
+</div>
+<div id="roleDetailContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#roleList">系统角色管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">系统角色详情</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="gobackRole(1);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="editUserForm" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="roleNameDetails"><span class="requiredValue">角色名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">                     
+						<input type="text" class="form-control" id="roleNameDetails" name="roleName" placeholder="请输入角色名称">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addRoleName">角色所属父级角色:</label>
+                    <div class="col-sm-5">
+                    	<input type="text" class="form-control" id="parentName" name="parentName" placeholder="角色所属父级角色">
+                    </div>
+                </div>
+             	<div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">角色类型:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" name="roleType" id="editRoleType1" value="1" style="margin-top: 12px;" checked="checked"><label for="editRoleType1">管理员</label>						
+						<span id="roleType4" class="hidden">
+							<input type="radio" name="roleType" id="editRoleType4" value="4" style="margin-left: 10px;" ><label for="editRoleType4">系统管理员</label>
+						</span>
+						<span id="roleType3" class="hidden">
+							<input type="radio" name="roleType" id="editRoleType3" value="3" style="margin-left: 10px;" ><label for="editRoleType3">销售</label>							
+						</span>
+						<input type="radio" name="roleType" id="editRoleType2" value="2" style="margin-left: 10px;" ><label for="editRoleType2">业务员</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="editStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="editStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="descriptionDetails"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="descriptionDetails" name="description" placeholder="请输入该角色详情描述">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="createdTime"><span class="requiredValue">创建时间:</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="createdTime" id="createdTime">
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>

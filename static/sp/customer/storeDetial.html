@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <title>门店信息</title>
+	    <script src="../../common/js/jquery-1.11.0.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+		        url: '/deviceModel/list',
+		        dataType: 'json',
+		        async: false,
+		        success: function (result) {
+		           	if (result.code == "301") {
+				    	sessionStorage.clear();
+				        window.location.href='../../index.html';
+				    };
+		        }
+		   	});
+		</script>
+		<link href="../../common/images/logo.ico" rel="shortcut icon">
+	    <link id="bs-css" href="../../common/css/bootstrap-cerulean.css?v=17050901" rel="stylesheet">
+	    <link href="../../common/css/charisma-app.css" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css?v=17050901"/>
+	    <link rel="stylesheet" type="text/css" href="../../common/css/bootstrapValidator.min.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/storeDetail.css?v=17050901"/>
+		<script src="../../common/js/bootstrap.js"></script>
+		<script src="../../common/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/tendina.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/jquery.treemenu.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/base.js?v=17050901"></script>
+	</head>
+<body>
+	<div id="header">
+		<div class="topNav">
+			<div class="topNavContent">
+				<div class="navRight">
+					<i class="glyphicon glyphicon-user"></i><span>你好,</span><span id="accountName"></span><a class="logout" href="#" onclick="logout()">退出</a>
+					<i class="glyphicon glyphicon-envelope"></i><a href="#" >消息中心</a>
+					<i class="glyphicon glyphicon-question-sign"></i><a href="#" >帮助中心</a>
+					<i class="glyphicon glyphicon-lock"></i><a href="#" data-toggle="modal" data-target="#changePassword" >修改密码</a>
+				</div>
+			</div>
+		</div>
+		<div class="logoBar">
+			<div class="logoBarContent">
+				<img class="logo" src="../../common/images/logo.png?v=17011601"/>
+				<span class="space"></span>
+				<span class="platform">商户管理平台</span>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p>
+			<span>Powered by Inspriy</span><span style="margin-left: 20px;">Copyright 2005-2017 All Rights Reserved</span>
+		</p>
+	</div>
+	<div class="container" id="container" >
+		<div class="row" style="width: 100%;margin: 0;">
+			<div class="col-xs-2 leftContainer">
+				<div id="control"><i class='icon iconfont icon-xiangzuoshouqi-copy'></i></div>
+				<ul id="nav"></ul>
+				<ul id="navIcon"></ul>
+			</div>
+			<div class="col-xs-2 treeContainer">
+				<div id="searchlistTree"><input id="searchTreeValue" type="text" placeholder="搜索客户" value=""/><i class='icon iconfont icon-iconfontsousuo1 operate'></i></div>
+				<ul class="listTree" id="listTree"></ul>
+			</div>
+			<div class="col-xs-8 rightContainer">
+				<div class="row navbars">
+					<div id="upgradeMenu" class="col-xs-12">
+						<div class="navbars_nav">
+							<a href="javascript:void(0);">客户信息详情</a>
+						</div>
+					</div>
+				</div>
+	            <div class="row" style="width: 100%;">
+	            	<form class="form-horizontal" role="form" id="deviceConfigForm">
+						<div class="form-group" style="display: none;">
+							<div class="col-xs-2 col-xs-offset-1">
+								<p>parentId</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" id="storeparentId" name="parentId" value="" />
+							</div>
+						</div>
+						<div class="form-group" style="display: none;">
+							<div class="col-xs-2 col-xs-offset-1">
+								<p>storeId</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" id="storeId" name="id" value="" />
+							</div>
+						</div>
+						
+						<div class="form-group" style="margin-top: 30px;">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>客户简称</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" id="detAbb" name="abb" value="" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>客户名称</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" id="detName" name="name" value="" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>客户类型</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="radio" name="type" id="editType1" value="1" style="margin-top: 12px;"><label for="editType1">服务商</label>
+							<input type="radio" name="type" value="2" id="editType2" style="margin-left: 25px;"><label for="editType2">商户</label>
+							<input type="radio" name="type" value="3" id="editType3" style="margin-left: 25px;"><label for="editType3">门店</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>联系人</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" id="detContact" name="contact" value="" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>电话</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" id="detMobile" name="mobile" value="" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>邮箱</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" id="detMail" name="mail" value="" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>地址</p>
+							</div>
+							<div class="col-xs-5">
+								<input type="text" class="form-control" id="detAddress" name="address" value="" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>启用状态</p>
+							</div>
+							<div class="col-xs-4">
+									<input type="radio" name="enableStatus" id="enableStatus1" value="1"><label for="enableStatus1">启用</label>
+	                                <input type="radio" name="enableStatus" value="0" id="enableStatus0"  style="margin:15px 5px 0 30px;"><label for="enableStatus0">禁用</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-2 col-xs-offset-1">
+								<!--<span class="wire"></span>-->
+								<p>是否测试</p>
+							</div>
+							<div class="col-xs-4">
+								<input type="radio" name="testStatus" id="testStatus1" value="1"><label for="testStatus1">是</label>
+								<input type="radio" name="testStatus" id="testStatus0" value="0"  style="margin:15px 5px 0 43px;"><label for="testStatus0">否</label>
+							</div>
+						</div>
+						<button class="saveBtn" id="saveSet" style="margin: 30px 0 0 250px;">确认修改</button>
+					</form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+	<div class="tooltiptop">
+		<div class="bg"></div>
+		<div class="main">
+			<span class="toolValue"></span>				
+			<span class="toolClose" onClick="ToolTipTop.Hide();" title="关闭"><i class="iconfont icon-guanbi"></i></span>
+		</div>
+	</div>
+</body>
+<script src="../common/js/common.js?v=17050901" type="text/javascript" charset="utf-8"></script>
+<script src="js/storeDetial.js?v=17050901" type="text/javascript" charset="utf-8"></script>
+</html>

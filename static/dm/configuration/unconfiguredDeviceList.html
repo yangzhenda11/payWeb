@@ -1,0 +1,38 @@
+<div id="unconfigredDeviceContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#deviceConfigList">设备配置列表</a><span class="space"></span>
+				<a href="index.html#configuredDeviceList">设备列表</a><span class="space"></span>
+				<a href="javascript:void(0);">添加设备</a>
+			</div>
+			<button class="btn btn-primary" id="addbtn" onclick="goBackList();">返回</button>
+		</div>
+	</div>					
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle" id="devicesQueryTable">			
+			<label class="searchText" for="queryDeviceId">设备编号</label><input type="text" class="special" id="queryDeviceId" />
+			<label class="searchText" for="queryDeviceType">设备类型</label><select id="queryDeviceType" class="specialselect" name="queryDeviceType"></select>
+			<button class="searchBtn" type="button" onclick="queryUnConfigDevice(1);">查询</button>			
+		</div>	
+		<div class="col-sm-12">
+			<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+			<div class="panel panel-default panel-info">
+				<table id="addDevicesTable" class="table" style="width: 100%; text-align: center;margin: 0;">
+					<thead>
+						<tr class="thStyle">
+							<th class="col-sm-1" style="text-align: center"><input id='ckAll' type='checkbox' onclick='checkAllId()'></th>
+							<th class="col-sm-8" style="text-align: center">设备编号</th>
+							<th class="col-sm-3" style="text-align: center">设备类型</th>
+						</tr>
+					</thead>
+					<tbody class="trStyle"></tbody>
+				</table>
+			</div>
+			<div id="addDeviceDiv" class="hidden" style="text-align: center;margin-top: 20px;"><button class="saveBtn" onclick="addConfig();">确认添加</button></div>														
+			<div class="alignCenter">
+				<div id="pagination" class="pagination"></div>
+			</div>
+		</div>
+	</div>
+</div>

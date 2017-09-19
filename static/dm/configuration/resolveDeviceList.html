@@ -1,0 +1,37 @@
+<div id="resolveDeviceContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);" onclick="backResolveList();">小票解析模版</a><span class="space"></span>				
+				<a href="javascript:void(0);">设备列表</a>			
+			</div>
+			<button class="btn btn-primary" id="addbtn" onclick="addDevices();">添加设备</button>
+            <button class="btn btn-primary" id="unwrap" type="button" style="margin-right: 20px;" onclick="unBindDevice();">解绑设备</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div id="devicesQueryTable" class="col-sm-12 titleStyle">
+			<label class="searchText" for="queryDeviceId">设备编号</label><input type="text" class="special" id="queryDeviceId" /> 
+			<label class="searchText" for="queryDeviceType">设备类型</label><select id="queryDeviceType" class="specialselect" name="queryDeviceType"></select>
+			<button class="searchBtn" type="button" onclick="queryDeviceList(1);">查询</button>			
+		</div>	
+		<div class="col-sm-12">
+			<div class="panel panel-default panel-primary">
+				<table class="table alignCenter" id="devicesTable">
+					<thead>
+						<tr class="thStyle">
+							<th class="col-sm-1" style="text-align: center"><input id='checkall' type='checkbox' onclick='checkSelect()'></th>
+							<th class="col-sm-2" style="text-align: center">设备编号</th>
+							<th class="col-sm-2" style="text-align: center">设备类型</th>
+							<th class="col-sm-1" style="text-align: center">解绑设备</th>
+						</tr>
+					</thead>
+					<tbody class="trStyle"></tbody>
+				</table>
+			</div>
+			<div class="alignCenter">
+				<div id="pagination" class="pagination"></div>
+			</div>
+		</div>
+	</div>
+</div>

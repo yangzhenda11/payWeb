@@ -1,0 +1,87 @@
+<div id="customerUpdateContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#customer">服务商列表</a><span class="space"></span>
+				<a href="javascript:void(0);">服务商信息修改</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backCustomer();">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="updateCustomer" role="form" style="align-content: center">
+                <div class="form-group">
+                	<input type="text" class="form-control hidden" id="customerId" name="id" placeholder="">
+                    <label class="col-sm-3 control-label" for="editName"><span class="requiredValue">服务商名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="name" id="editName" placeholder="请输入服务商名称" />
+                    </div>
+                </div>
+             	<div class="form-group">
+                    <label class="col-sm-3 control-label" for="editAbb"><span class="requiredValue">服务商简称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="abb" id="editAbb" placeholder="请输入服务商简称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editContact"><span class="requiredValue">联系人:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="contact" id="editContact" placeholder="请输入联系人" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editMobile"><span class="requiredValue">电话:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="mobile" id="editMobile" placeholder="请输入联系方式" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editMail"><span class="requiredValue">邮箱:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="mail" id="editMail" placeholder="请输入邮箱" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editAddress"><span class="requiredValue">地址:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="address" id="editAddress" placeholder="请输入地址" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editSell"><span class="requiredValue">销售员:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                       <select class="form-control" id="editSell" name="salesId"></select>
+                    </div>
+                </div>               
+				<div class="form-group">
+					<label class="col-sm-3 control-label">服务商类型:</label>
+					<div class="col-sm-5" style="vertical-align: middle;">
+						<input type="radio" name="type" id="type1" value="1"><label for="type1">无开发能力</label>
+						<input type="radio" name="type" value="4" id="type4" style="margin-left: 25px;" checked="checked"><label for="type4">有开发能力</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">状态:</label>
+					<div class="col-sm-5" style="vertical-align: middle;">
+						<input type="radio" name="enableStatus" id="enableStatus1" value="1"><label for="enableStatus1">启用</label>
+						<input type="radio" name="enableStatus" value="0" id="enableStatus0"  style="margin-left: 65px;"checked="checked"><label for="enableStatus0">禁用</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">是否测试:</label>
+					<div class="col-sm-5" style="vertical-align: middle;">
+						<input type="radio" name="testStatus" id="testStatus1" value="1"><label for="testStatus1">是</label>
+						<input type="radio" name="testStatus" id="testStatus0" value="0"  style="margin-left: 80px;"checked="checked"><label for="testStatus0">否</label>
+					</div>
+				</div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>
+

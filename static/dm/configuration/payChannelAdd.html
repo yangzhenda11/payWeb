@@ -1,0 +1,86 @@
+<div id="payChannelAddContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#payChannelList">支付通道列表</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">新增支付通道</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="goBackpayChannelList();">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="addChannelForm" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="description"><span class="requiredValue">通道名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="description" id="description" placeholder="请输入通道名称" />
+                    </div>
+                </div>
+             	<div class="form-group">
+                    <label class="col-sm-3 control-label" for="customerId"><span class="requiredValue">服务商:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select id="customerId" name="customerId"></select>
+                    </div>
+                </div>                   
+				<div class="form-group">
+					<label class="col-sm-3 control-label"><span class="requiredValue">类型:</span><span class="required">*</span></label>
+					<div class="col-sm-5" style="vertical-align: middle;">
+						<input type="radio" name="channelType" id="channelTypeCommon"  value="1" checked="checked" onchange="changeChannelType(1)" /><label for="channelTypeCommon">普通通道</label>
+                        <input type="radio" name="channelType" id="channelTypeSlef" value="2" onchange="changeChannelType(2)" style="margin-left: 20px;"/><label for="channelTypeSlef">定额通道</label>
+					</div>
+				</div>
+
+				<div class="form-group" id="fixationPayDiv" style="display: none;">
+					<label class="col-sm-3 control-label" for="fixationMoney"><span class="requiredValue">金额(元):</span><span class="required">*</span></label>
+					<div class="col-sm-5">
+                        <input type="text" class="form-control" name="fixationMoney" id="fixationMoney" placeholder="请输入金额（元）" />
+					</div>
+				</div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="sign_key"><span class="requiredValue">密钥:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="signKey" id="sign_key" placeholder="请输入密钥" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="query_order_url"><span class="requiredValue">订单查询链接:</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="queryOrderUrl" id="query_order_url" placeholder="请输入订单查询链接" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="refundUrl"><span class="requiredValue">订单退款链接:</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="refundUrl" id="refundUrl" placeholder="请输入订单退款链接" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="scanned_pay_url"><span class="requiredValue">刷卡支付(被扫)链接:</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="scannedPayUrl" id="scanned_pay_url" placeholder="请输入刷卡支付链接" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="generate_order_url"><span class="requiredValue">统一下单(主扫)链接:</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="generateOrderUrl" id="generate_order_url" placeholder="请输入统一下单链接" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="time_out"><span class="requiredValue">请求超时时间（s）:</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="timeOut" id="time_out" placeholder="请输入超时时间(s)" />
+                    </div>
+                </div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>
+

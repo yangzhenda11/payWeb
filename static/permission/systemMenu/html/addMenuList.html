@@ -1,0 +1,142 @@
+<div class="modal-dialog" id="modalBody">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">编辑菜单</span>
+		</div>
+		<form action="/customer/add" method="post" class="form-horizontal" role="form" id="editMenu">
+			<div class="modal-body">
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">菜单名称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control hidden" id="editLoginUserId" name="loginUserId" placeholder="">
+						<input type="text" class="form-control" id="editMenuName" name="menuName" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">菜单编号:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" disabled="" id="editMenuCodes" name="menuCode" placeholder="">
+						<input type="text" class="form-control hidden" id="editMenuCode" name="menuCode" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">菜单所属系统:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" disabled="" id="editTopBarName" name="topBarName" placeholder="">
+						<input type="text" class="form-control hidden" id="editTopBarCode" name="topBarCode" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label">url地址:</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editUrl" name="url" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label">菜单图标:</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editIcon" name="icon" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">所属父级菜单:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<select class="form-control" id="editparentId" name="parentId"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">类型:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<select class="form-control" id="editType" name="type">
+							<option value="1">普通菜单</option>
+							<option value="2">权限菜单</option>
+							<option value="3">权限设置菜单</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">描述:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editDescription" name="description" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="enableStatus0" style="margin-left: 25px;"><label for="enableStatus0">禁用</label>
+					</div>
+				</div>						
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="saveBtn">保存</button>
+				<button class="backBtn" data-dismiss="modal" style="margin-left: 20px;">取消</button>
+			</div>	
+		</form>
+	</div>
+	<!-- /.modal-content -->
+</div>
+
+
+<div class="modal-dialog" id="modalDetail">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">菜单详情</span>
+		</div>
+		<div class="modal-body">
+			<table id='editSp' class="table-bordered table table-striped">
+				<tbody id="versionTBody">
+					<tr>
+						<td class="col-sm-1">菜单名称</td>
+						<td class="col-sm-3" id="menuNameDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">菜单编号</td>
+						<td class="col-sm-1" id="menuCodeDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">菜单url地址</td>
+						<td class="col-sm-1" id="urlDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">菜单图标</td>
+						<td class="col-sm-1" id="iconDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">菜单所属系统</td>
+						<td class="col-sm-1" id="systemDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">类型</td>
+						<td class="col-sm-1" id="typeDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">描述</td>
+						<td class="col-sm-1" id="descriptionDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">启用状态</td>
+						<td class="col-sm-1" id="statusDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">是否为父级菜单</td>
+						<td class="col-sm-1" id="isParentMenuDetails"></td>
+					</tr>
+					<tr class="hidden" id="parentMenuTr">
+						<td class="col-sm-1">所属父级菜单</td>
+						<td class="col-sm-1" id="parentMenuDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">创建时间</td>
+						<td class="col-sm-1" id="createdTimeDetails"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="saveBtn" data-dismiss="modal">关闭</button>
+		</div>
+	</div>
+</div>

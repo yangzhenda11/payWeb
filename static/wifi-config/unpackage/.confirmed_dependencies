@@ -1,0 +1,23 @@
+{
+  "index.html": {
+    "resources": [
+      "img/volume.png",
+      "style/example.css",
+      "js/jquery.min.js",
+      "js/zepto.min.js",
+      "js/qrcode.js",
+      "style/weui.css",
+      "js/jquery.qrcode.js",
+      "js/example.js",
+      "setvolume.html"
+    ],
+    "refer": []
+  },
+  "setvolume.html": {
+    "resources": [
+      "img/goback.png",
+      "index.html"
+    ],
+    "refer": []
+  }
+}

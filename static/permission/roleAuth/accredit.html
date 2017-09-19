@@ -1,0 +1,62 @@
+<div id="accreditContainer" style="padding: 0;">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+        		<a href="index.html#roleList" onclick="gobackRole()">系统角色管理</a><span class="space"></span>
+        		<a href="javascript:void(0);" id="roleName"></a>
+			</div>			
+			<button class="btn btn-primary speBtn" onclick="gobackRole();">返回</button>
+			<!--<button class="btn btn-primary speBtnL" onclick="accreditCopy();">权限复制</button>-->
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-3 systemDiv" style="padding: 0;">							
+        	<ul id="systemContent"></ul>
+   	    </div>												
+		<div class="col-sm-9" style="padding-bottom: 20px;float: right;margin-top: 20px;">
+        	<div class="panel panel-default">        		
+            	<div class="panel-body">
+               		<table id="functionTable" class="table"  style="text-align: center;margin: 0;">
+                    	<thead style="background: #f4f5f9;font-weight: normal;color: #222;">
+                    		<tr>
+                            	<th class="col-sm-1" style="text-align: center;"><input id='checkAllAddFunction' type='checkbox' onclick='checkAllFunctionCode()'></th>
+                                <th class="col-sm-3">功能名称</th>
+                                <th class="col-sm-3">功能编号</th>
+                                <th class="col-sm-3">描述</th>
+                                <th class="col-sm-2">启用状态</th>
+                    		</tr>
+                    	</thead>
+                    	<tbody id="dictionaryTbody"></tbody>
+               		</table>
+                </div>
+        	</div>
+        	<div style="text-align:center; margin:0 auto;">
+            	<span id="affirmAccredit" class="hidden">确认授权</span>
+        	</div>
+    	</div>
+	</div>
+	<div class="modal fade" id="copyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" id="modalAdd">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<span class="modal_title">角色权限复制</span>
+				</div>
+				<form class="form-horizontal" role="form">
+					<div class="modal-body">						
+						<div class="form-group">
+							<div for="name" class="col-sm-5 control-label">要复制的角色名称:</div>
+							<div class="col-sm-6">
+								<select id="roleNameList" class="special" style="width: 200px;"></select>
+							</div>
+						</div>
+					</div>				
+				</form>
+				<div style="text-align: center;margin-bottom: 30px;">
+                    <div onclick="confirmCopy()" class="saveBtn">确定</div>
+                    <div style="margin-left: 30px;" class="backBtn">取消</div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

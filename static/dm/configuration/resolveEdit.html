@@ -1,0 +1,259 @@
+<div id="resolveAddContainer">
+    <div class="row navbars">
+        <div id="upgradeMenu" class="col-xs-12">
+            <div class="navbars_nav">
+                <a href="index.html#resolve">小票解析模版</a>
+                <span class="space"></span>
+                <a href="javascript:void(0);">新增小票模板</a>
+            </div>
+            <button class="btn btn-primary speBtn" onclick="backResolveList(0);">返回</button>
+        </div>
+    </div>
+    <div class="row" style="width: 100%;">
+        <div class="col-sm-12">
+            <form class="form-horizontal textEdit" id="resolveForm" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="name"><span class="requiredValue">模板名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="请输入模板名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="description"><span class="requiredValue">模板描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="description" id="description" placeholder="请输入模板描述" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="exclusiveKeys"><span class="requiredValue">排除关键字:</span></label>
+                    <div class="col-sm-5 exclusiveKeys">
+                        <input type="text" class="form-control2 form-control" name="exclusiveKeys" id="exclusiveKeys" placeholder="请输入排除关键字" />
+                        <button class="keyDelete">删除</button>
+                    </div>
+                    <div onclick="addResolve()" class="keyAdd">增加</div>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="notifyUrl"><span class="requiredValue">通知地址:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="notifyUrl" id="notifyUrl" placeholder="请输入通知地址" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="customerId"><span class="requiredValue">服务商名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select id="customerId" name="customerId"></select>
+                    </div>
+                </div>
+                <table class="table" id="templateTable" style="width: 62%;margin-left: 150px;">
+                    <thead>
+                    <tr class="thStyle">
+                        <th style="padding-left: 20px;text-align: center">结束类型</th>
+                        <th style="padding-left: 20px;text-align: center">抓取类型</th>
+                        <th style="padding-left: 20px;text-align: center">关键字</th>
+                        <th style="padding-left: 20px;text-align: center">候选字(逗号分隔)</th>
+                        <th style="padding-left: 20px;text-align: center">参数名</th>
+                        <th style="padding-left: 20px;text-align: center">删除操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="trStyle">
+                    <tr class="tr-item" style="border: 1px solid #ccc;border-top: 0px">
+                        <td style="border-right:1px solid #ccc">
+                            <select name="endType" style="outline: none;" id="endType">
+                                <option value="1">空白</option>
+                                <option value="2">换行</option>
+                            </select>
+                        </td>
+                        <td style="border-right:1px solid #ccc">
+                            <select name="fetchType" style="outline: none;" id="fetchType">
+                                <option value="1">关键字</option>
+                                <option value="2">候选字</option>
+                            </select>
+                        </td>
+                        <td style="border-right:1px solid #ccc;">
+                            <textarea name="key" id="key"></textarea>
+                        </td>
+                        <td style="border-right:1px solid #ccc;">
+                            <textarea name="keywords" id="keywords"></textarea>
+                        </td>
+                        <td style="border-right:1px solid #ccc;">
+                            <textarea type="text" name="urlParam" id="urlParam"></textarea>
+                        </td>
+                        <td style="border-right:1px solid #ccc;text-align: center">
+                           <i class="icon iconfont icon-shanchu operate iconDel"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div onclick="addTable()" class="keyAdd">增加字段</div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">是否使用:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" style="outline: none;" name="enabled" id="enabled1" value="1" checked />
+                        <label for="enabled1">启用</label>
+                        <input type="radio" style="outline: none;margin-left: 20px;" name="enabled" id="enabled2" value="2" />
+                        <label for="enabled1">禁用</label>
+                    </div>
+                </div>
+	            <div class="form-group saveStyle">
+	                <div class="col-sm-offset-4 col-sm-8">
+	                    <button type="submit" class="saveBtn" style="margin-left: 38px;">保存</button>
+	                </div>
+	            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="resolveDetailContainer">
+    <div class="row navbars">
+        <div id="upgradeMenu" class="col-xs-12">
+            <div class="navbars_nav">
+                <a href="index.html#resolve">小票解析模版</a>
+                <span class="space"></span>
+                <a href="javascript:void(0);">小票模版详情</a>
+            </div>
+            <button class="btn btn-primary speBtn" onclick="backResolveList(0);">返回</button>
+        </div>
+    </div>
+    <div class="row" style="width: 100%;">
+        <div class="col-sm-12">
+            <form class="form-horizontal textEdit" id="resolveForm" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="name"><span class="requiredValue">模板名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="请输入模板名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="description"><span class="requiredValue">模板描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="description" id="description" placeholder="请输入模板描述" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="exclusiveKeys"><span class="requiredValue">排除关键字:</span></label>
+                    <div class="col-sm-5 exclusiveKeys">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="notifyUrl"><span class="requiredValue">通知地址:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="notifyUrl" id="notifyUrl" placeholder="请输入通知地址" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="customerId"><span class="requiredValue">服务商名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select id="customerId" name="customerId"></select>
+                    </div>
+                </div>
+                <table class="table" id="templateTable" style="width: 62%;margin-left: 150px;">
+                    <thead>
+                    <tr class="thStyle">
+                        <th style="padding-left: 20px;text-align: center">结束类型</th>
+                        <th style="padding-left: 20px;text-align: center">抓取类型</th>
+                        <th style="padding-left: 20px;text-align: center">关键字</th>
+                        <th style="padding-left: 20px;text-align: center">候选字(逗号分隔)</th>
+                        <th style="padding-left: 20px;text-align: center">参数名</th>
+                        <th style="padding-left: 20px;text-align: center">删除操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="trStyle">
+
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">是否使用:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" style="outline: none;" name="enabled" id="enabled1" value="1" />
+                        <label for="enabled1">启用</label>
+                        <input type="radio" style="outline: none;margin-left: 20px;" name="enabled" id="enabled2" value="2" />
+                        <label for="enabled1">禁用</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div id="resolveConfigContainer">
+    <div class="row navbars">
+        <div id="upgradeMenu" class="col-xs-12">
+            <div class="navbars_nav">
+                <a href="index.html#resolve">小票解析模版</a>
+                <span class="space"></span>
+                <a href="javascript:void(0);">修改小票模板</a>
+            </div>
+            <button class="btn btn-primary speBtn" onclick="backResolveList(0);">返回</button>
+        </div>
+    </div>
+    <div class="row" style="width: 100%;">
+        <div class="col-sm-12">
+            <form class="form-horizontal textEdit" id="resolveForm" role="form" style="align-content: center">
+                <input type="hidden" id="resolveId">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="name"><span class="requiredValue">模板名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="请输入模板名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="description"><span class="requiredValue">模板描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="description" id="description" placeholder="请输入模板描述" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="exclusiveKeys"><span class="requiredValue">排除关键字:</span></label>
+                    <div class="col-sm-5 exclusiveKeys">
+
+                    </div>
+                    <!--<div onclick="addResolve()" class="keyAdd">增加</div>-->
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="notifyUrl"><span class="requiredValue">通知地址:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="notifyUrl" id="notifyUrl" placeholder="请输入通知地址" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="customerId"><span class="requiredValue">服务商名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <select id="customerId" name="customerId"></select>
+                    </div>
+                </div>
+                <table class="table" id="templateTable" style="width: 62%;margin-left: 150px;">
+                    <thead>
+                    <tr class="thStyle">
+                        <th style="padding-left: 20px;text-align: center">结束类型</th>
+                        <th style="padding-left: 20px;text-align: center">抓取类型</th>
+                        <th style="padding-left: 20px;text-align: center">关键字</th>
+                        <th style="padding-left: 20px;text-align: center">候选字(逗号分隔)</th>
+                        <th style="padding-left: 20px;text-align: center">参数名</th>
+                        <th style="padding-left: 20px;text-align: center">删除操作</th>
+                    </tr>
+                    </thead>
+                    <tbody class="trStyle">
+
+                    </tbody>
+                </table>
+                <div onclick="addTable()" class="keyAdd">增加字段</div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">是否使用:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="radio" style="outline: none;" name="enabled" id="enabled1" value="1" />
+                        <label for="enabled1">启用</label>
+                        <input type="radio" style="outline: none;margin-left: 20px;" name="enabled" id="enabled2" value="2" />
+                        <label for="enabled1">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn" style="margin-left: 38px;">保存</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

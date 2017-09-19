@@ -1,0 +1,45 @@
+<div id="uploadResourceContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#systemResourcePack">系统资源管理</a><span class="space"></span>
+        		<a href="javascript:void(0);">系统资源包上传</a>
+			</div>
+			<button class="btn btn-primary" id="addbtn" onclick="tosystemResourcePack();">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<form class="form-horizontal textEdit" role="form" id="uploadPack">
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="fileName"><span class="requiredValue">文件名:</span><span class="required">*</span></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="fileName" id="fileName" placeholder="请输入文件名称">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="version"><span class="requiredValue">版本号:</span><span class="required">*</span></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="version" id="version" placeholder="请输入资源包版本号">
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="packType"><span class="requiredValue">类型:</span><span class="required">*</span></label>
+                <div class="col-sm-5">
+                    <select class="form-control" id="packType" name="type"></select>
+                </div>
+            </div>
+			<div class="form-group">
+                <label class="col-sm-3 control-label" for="packType"><span class="requiredValue"><p>文件上传<span id="fileStaut" style="display: block;color: red;">(文件未上传)</span></p></span></label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control hidden" id="localPath" name="localPath" value="" />
+					<input id="file" name="file" class="file" type="file" multiple data-max-file-count="1">
+                </div>
+            </div>
+            <div class="form-group" style="margin-top: 20px;">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button class="saveBtn" id="saveConfig">保存</button>                      
+                </div>
+            </div>			
+		</form>
+	</div>
+</div>

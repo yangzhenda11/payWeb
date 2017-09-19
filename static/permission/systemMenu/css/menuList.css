@@ -1,0 +1,36 @@
+.systemTit {
+  height: 40px;
+  background: #f4f5f9;
+  line-height: 40px;
+  text-indent: 10px;
+}
+.systemDiv {
+  border-right: 1px solid #e7e7eb;
+  height: 100%;
+}
+.tasksIcon {
+  font-size: 16px;
+  display: inline-block;
+  margin-right: 5px;
+}
+#systemContainer {
+  padding: 0;
+}
+#systemContainer .empty {
+  text-align: center;
+  padding: 0;
+}
+#systemContainer .checkSystemList {
+  background: #44b549;
+  color: #fff;
+}
+#systemContainer li {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e7e7eb;
+  padding-left: 40px;
+  cursor: pointer;
+}
+#systemContainer li:hover {
+  background: #f4f5f9;
+}

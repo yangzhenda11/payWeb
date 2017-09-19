@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>客户管理</title>
+		<script src="../../common/js/jquery-1.11.0.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+		        url: '/deviceModel/list',
+		        dataType: 'json',
+		        async: false,
+		        success: function (result) {
+		           	if (result.code == "301") {
+				    	sessionStorage.clear();
+				        window.location.href='../../index.html';
+				    };
+		        }
+		   	});
+		</script>
+		<link href="../../common/images/logo.ico" rel="shortcut icon">
+		<link href="../../common/css/bootstrap-cerulean.css?v=17050901" rel="stylesheet">
+		<link href="../../common/css/charisma-app.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../common/css/common.css?v=17050901" />
+		<link rel="stylesheet" type="text/css" href="../../common/css/bootstrapValidator.min.css" />
+		<script src="../../common/js/bootstrap.js"></script>
+		<script src="../../common/js/tendina.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/jquery.treemenu.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/base.js?v=17050901"></script>
+	</head>
+	<body>
+		<div id="header">
+			<div class="topNav">
+				<div class="topNavContent">
+					<div class="navRight">
+						<i class="glyphicon glyphicon-user"></i><span>你好,</span><span id="accountName"></span><a class="logout" href="#" onclick="logout()">退出</a>
+						<i class="glyphicon glyphicon-envelope"></i><a href="#">消息中心</a>
+						<i class="glyphicon glyphicon-question-sign"></i><a href="#">帮助中心</a>
+						<i class="glyphicon glyphicon-lock"></i><a href="#" data-toggle="modal" data-target="#changePassword" class="hidden-sm">修改密码</a>
+					</div>
+				</div>
+			</div>
+			<div class="logoBar">
+				<div class="logoBarContent">
+					<img class="logo" src="../../common/images/logo.png?v=17011601"/>
+					<span class="space"></span>
+					<span class="platform">商户管理平台</span>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<p>
+				<span>Powered by Inspriy</span><span style="margin-left: 20px;">Copyright 2005-2017 All Rights Reserved</span>
+			</p>
+		</div>
+		<div class="container" id="container" >
+			<div class="row" style="width: 100%;margin: 0;">
+				<div class="col-xs-2 leftContainer">
+					<div id="control"><i class='icon iconfont icon-xiangzuoshouqi-copy'></i></div>
+					<ul id="nav"></ul>
+					<ul id="navIcon"></ul>
+				</div>
+				<div class="col-xs-2 treeContainer">
+					<div id="searchlistTree"><input id="searchTreeValue" type="text" placeholder="搜索客户" value=""/><i class='icon iconfont icon-iconfontsousuo1 operate'></i></div>
+					<ul class="listTree" id="listTree"></ul>
+				</div>
+				<div class="col-xs-8 rightContainer">
+					<div class="row navbars">
+						<div id="upgradeMenu" class="col-xs-12">
+							<div class="navbars_nav">
+								<a href="javascript:void(0);">客户列表</a>
+							</div>
+							<button class="btn btn-primary hidden" id="addbtn" onclick="addMerchant();">+&nbsp;添加客户</button>
+						</div>
+					</div>
+					<div class="row" style="width: 100%;">
+						<div class="col-sm-12 titleStyle">							
+                        	<label class="searchText" for="merchantName">名称</label><input id="merchantName" type="text" class="special">
+                        	<button class="searchBtn" id="querybtn" onclick="serchMerchant(1);" >查询</button>                        	
+						</div>	
+						<div class="col-sm-12">
+							<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+		                    <div class="panel panel-default">
+	                            <table id="merchantTable" class="table" style="table-layout: fixed;">
+	                                <thead class="theadStyle">
+		                                <tr>
+		                                	<th class="col-sm-2" style="padding-left: 20px;">客户简称</th>
+		                                    <th class="col-sm-3">客户全称</th>
+		                                    <th class="col-sm-1">联系人</th>
+		                                    <th class="col-sm-2">电话</th>		                                    
+		                                    <th class="col-sm-1" style="text-align: center;">状态</th>
+		                                    <th class="col-sm-1" style="text-align: center;">类型</th>
+		                                    <th class="col-sm-2" style="text-align: center;">操作</th>
+		                                </tr>
+	                                </thead>
+	                                <tbody id="spTbody"></tbody>
+	                            </table>		                        
+		                    </div>
+		                    <div class="alignCenter">
+		                        <div id="pagination" class="pagination"></div>
+		                    </div>
+	                	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+		<div class="modal fade" id="addMerchantModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+		<div class="modal fade" id="editMerchantModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+		<div class="modal fade" id="merchantDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">×</button>
+						<span class="modal_title">客户详情</span>
+					</div>
+					<div class="modal-body">
+						<table id='editSp' class="table-bordered table table-striped">
+							<tbody id="versionTBody">
+								<tr>
+									<td class="col-sm-1">客户名称</td>
+									<td class="col-sm-3" id="detName"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">客户简称</td>
+									<td class="col-sm-1" id="detAbb"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">客户类型</td>
+									<td class="col-sm-1" id="detType"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">联系人</td>
+									<td class="col-sm-1" id="detContact"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">移动电话</td>
+									<td class="col-sm-1" id="detMobile"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">邮箱</td>
+									<td class="col-sm-1" id="detMail"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">地址</td>
+									<td class="col-sm-1" id="detAddress"></td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">状态</td>
+									<td class="col-sm-1" id="enableStatus">
+									</td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">是否测试</td>
+									<td class="col-sm-1" id="testStatus">
+									</td>
+								</tr>
+								<tr>
+									<td class="col-sm-1">创建时间</td>
+									<td class="col-sm-1" id="createdTime">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="saveBtn" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tooltiptop">
+			<div class="bg"></div>
+			<div class="main">
+				<span class="toolValue"></span>				
+				<span class="toolClose" onClick="ToolTipTop.Hide();" title="关闭"><i class="iconfont icon-guanbi"></i></span>
+			</div>
+		</div>
+	</body>
+	<script src="../common/js/common.js?v=17050901" type="text/javascript" charset="utf-8"></script>
+	<script src="js/merchant.js?v=17050901" type="text/javascript"></script>
+</html>

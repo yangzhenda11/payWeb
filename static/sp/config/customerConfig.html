@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <title>服务商配置管理</title>
+	    <script src="../../common/js/jquery-1.11.0.js"></script>
+		<script type="text/javascript">
+			$.ajax({
+		        url: '/deviceModel/list',
+		        dataType: 'json',
+		        async: false,
+		        success: function (result) {
+		           	if (result.code == "301") {
+				    	sessionStorage.clear();
+				        window.location.href='../../index.html';
+				    };
+		        }
+		   	});
+		</script>
+		<link href="../../common/images/logo.ico" rel="shortcut icon">
+	    <link id="bs-css" href="../../common/css/bootstrap-cerulean.css?v=17050901" rel="stylesheet">
+	    <link href="../../common/css/charisma-app.css" rel="stylesheet">
+	    <link rel="stylesheet" type="text/css" href="../common/css/common.css?v=17050901"/>
+	    <link rel="stylesheet" type="text/css" href="../../common/css/bootstrapValidator.min.css"/>
+	    <link rel="stylesheet" type="text/css" href="../../common/css/fileinput.min.css"/>
+	    <link rel="stylesheet" type="text/css" href="css/config.css?v=17050901"/>
+		<script src="../../common/js/bootstrap.js"></script>
+		<script src="../../common/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/tendina.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/jquery.treemenu.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/fileinput.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/fileinput_locale_zh.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../common/js/base.js?v=17050901"></script>
+	</head>
+	<body>
+		<div id="header">
+			<div class="topNav">
+				<div class="topNavContent">
+					<div class="navRight">
+						<i class="glyphicon glyphicon-user"></i><span>你好,</span><span id="accountName"></span><a class="logout" href="#" onclick="logout()">退出</a>
+						<i class="glyphicon glyphicon-envelope"></i><a href="#">消息中心</a>
+						<i class="glyphicon glyphicon-question-sign"></i><a href="#">帮助中心</a>
+						<i class="glyphicon glyphicon-lock"></i><a href="#" data-toggle="modal" data-target="#changePassword">修改密码</a>
+					</div>
+				</div>
+			</div>
+			<div class="logoBar">
+				<div class="logoBarContent">
+					<img class="logo" src="../../common/images/logo.png?v=17011601"/>
+					<span class="space"></span>
+					<span class="platform">商户管理平台</span>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<p>
+				<span>Powered by Inspriy</span><span style="margin-left: 20px;">Copyright 2005-2017 All Rights Reserved</span>
+			</p>
+		</div>
+		<div class="container" id="container" >
+			<div class="row" style="width: 100%;margin: 0;">
+				<div class="col-xs-2 leftContainer">
+					<div id="control"><i class='icon iconfont icon-xiangzuoshouqi-copy'></i></div>
+					<ul id="nav"></ul>
+					<ul id="navIcon"></ul>
+				</div>
+				<div class="col-xs-2 treeContainer">
+					<div id="searchlistTree"><input id="searchTreeValue" type="text" placeholder="搜索客户" value=""/><i class='icon iconfont icon-iconfontsousuo1 operate'></i></div>
+					<ul class="listTree" id="listTree"></ul>
+				</div>
+				<div class="col-xs-8 rightContainer">
+					<div class="row navbars">
+						<div id="upgradeMenu" class="col-xs-12">
+							<div class="navbars_nav">
+								<a href="javascript:void(0);">支付配置设置</a>
+							</div>
+						</div>
+					</div>
+		            <div class="row" style="width: 100%;" id="main">
+		            	<form id="customerSelect">
+							<input type="radio" name="type" id="default" value="" class="hidden" checked=""/>							
+							<input type="radio" class="straightInput" name="type" id="straight" value="1" />
+							<label for="straight" class="straightLable">微信,支付宝,口碑,百度钱包<span class="straightVaule">(直连通道)</span></label>
+					    	<input type="radio" class="relationInput" name="type" id="pufaGallery" value="2" />
+					    	<label for="pufaGallery" class="relationLable">浦发银行<span class="relationVaule">(间连通道)</span></label>
+					    	<input type="radio" class="relationInput" name="type" id="swiftGallery" value="3" />
+					    	<label for="swiftGallery" class="relationLable">威富通<span class="relationVaule">(间连通道)</span></label>
+						</form>
+		            	<button class="checkbtn" id="wxPayBtn" onclick="wxpayConfig();">微信</button>
+						<button class="uncheckbtn" id="aliPayBtn" onclick="alipayConfig();">支付宝/口碑</button>
+						<button class="uncheckbtn" id="bfbPayBtn" onclick="bfbpayConfig();">百度钱包</button>
+						<button class="uncheckbtn" id="spdPayBtn" onclick="spdpayConfig();">浦发银行</button>
+						<button class="uncheckbtn" id="swiftPayBtn" onclick="swiftpayConfig();">威富通</button>
+		            	<form class="form-horizontal hidden" role="form" id="wxpayConfigForm">
+		            		<input type="text" class="form-control hidden" id="wxCustomerId" name="customerId" value="" />
+		            		<input type="text" class="form-control hidden" id="wxParentId" name="parentId" value="" />
+		            		<input type="text" class="form-control hidden" id="wxId" name="id" value="" />
+		            		<div class="form-group">
+								<label class="col-xs-3 control-label" for="wxConfigName"><span class="requiredValue">微信配置名称:</span><span class="required">*</span></label>
+			                    <div class="col-xs-5">
+			                        <input type="text" class="form-control" id="wxConfigName" name="configName" value="" placeholder="请输入微信配置名称"/>
+			                    </div>
+		                   	</div>
+							<div class="form-group">
+								<label class="col-xs-3 control-label"><span class="requiredValue">配置类型:</span><span class="required">*</span></label>								
+								<div class="col-xs-5">
+									<input type="radio" name="type" id="wxType1" style="margin: 0 5px 0 0;" value="1" onchange="wxParentSwitch()"><label for="wxType1">服务商商户</label>
+									<input type="radio" checked="" name="type" id="wxType2" style="margin: 13px 5px 0 30px;" value="2" onchange="wxParentSwitch()"><label for="wxType2">普通商户</label>
+	                                <input type="radio" name="type" id="wxType3" value="3" style="margin: 13px 5px 0 30px;" onchange="wxChildSwitch()"><label for="wxType3">子商户</label>
+								</div>
+							</div>
+							<div id="wxParent">
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="wxappId"><span class="requiredValue">公共账号AppID:</span><span class="required">*</span></label>								
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="wxappId" name="appId" value="" placeholder="请输入公共账号AppID"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="wxappSecret"><span class="requiredValue">公共账号应用秘钥:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="wxappSecret" name="appSecret" value="" placeholder="请输入公共账号应用秘钥"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="wxmchNum"><span class="requiredValue">微信商户号:</span><span class="required">*</span></label>
+									<div class="col-xs-5">									
+										<input type="text" class="form-control" id="wxmchNum" name="mchNum" value="" placeholder="请输入微信商户号"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="wxappidKey"><span class="requiredValue">微信商户API秘钥:</span><span class="required">*</span></label>									
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="wxappidKey" name="appidKey" value="" placeholder="请输入微信商户API秘钥"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label"><span class="requiredValue">证书<span id="fileStaut" style="margin-left: 5px;">(证书未上传)</span>:</span><span class="required">*</span></label>									
+									<div class="col-xs-5">
+										<input type="text" class="form-control hidden" id="wxcertLocalPath" name="certLocalPath" value="" />
+										<input id="file" name="file" class="file" type="file" multiple data-max-file-count="1">
+									</div>
+								</div>
+							</div>
+							<div class="hidden" id="wxChild">
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="wxsubMchNum"><span class="requiredValue">子商户号:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="wxsubMchNum" name="subMchNum" value="" placeholder="请输入子商户号"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="wxsubAppid">子商户AppID:</label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="wxsubAppid" name="subAppid" value="" placeholder="请输入子商户AppID"/>
+									</div>
+								</div>
+							</div>
+							<button class="saveBtn" id="saveWXpay">确认修改</button>
+						</form>
+						<form class="form-horizontal hidden" role="form" id="alipayConfigForm">
+							<input type="text" class="form-control hidden" id="aliCustomerId" name="customerId" value="" />
+		            		<input type="text" class="form-control hidden" id="aliParentId" name="parentId" value="" />
+		            		<input type="text" class="form-control hidden" id="aliId" name="id" value="" />
+							<div class="form-group">
+								<label class="col-xs-3 control-label"><span class="requiredValue">配置类型:</span><span class="required">*</span></label>
+								<div class="col-xs-7">
+										<input type="radio" name="type" id="aliType1" style="margin: 0 5px 0 0;" value="1" onchange="aliParentSwitch()"><label for="aliType1">服务商ISV账号</label>
+										<input type="radio" checked="" name="type" id="aliType2" style="margin: 13px 5px 0 20px;" value="2" onchange="aliParentSwitch()"><label for="aliType2">普通账号</label>
+		                                <input type="radio" name="type" id="aliType3" value="3" style="margin: 13px 5px 0 20px;" onchange="aliChildSwitch()"><label for="aliType3">商户ISV子账号</label>
+								</div>
+							</div>							
+							<div id="aliParent">
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="aliConfigName"><span class="requiredValue">支付宝配置名称:</span><span class="required">*</span></label>										
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="aliConfigName" name="configName" value="" placeholder="请输入支付宝配置名称"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="aliappId"><span class="requiredValue">支付宝AppID:</span><span class="required">*</span></label>										
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="aliappId" name="appId" value="" placeholder="请输入支付宝AppID"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="aliPartner"><span class="requiredValue">合作者身份ID:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="aliPartner" name="partner" value="" placeholder="请输入合作者身份ID"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="alitimeExpress"><span class="requiredValue">订单有效时间(min):</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="alitimeExpress" name="timeExpress" value="" placeholder="请输入订单有效时间(min)"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="alipayPrivateKey"><span class="requiredValue">支付宝私钥:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<textarea type="text" class="form-control" id="alipayPrivateKey" name="alipayPrivateKey" value="" /></textarea>
+									</div>
+								</div>
+								<button class="saveBtn" id="saveAlipayBtn">确认修改</button>
+							</div>
+							<div class="hidden" id="aliChild">
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="storeId"><span class="requiredValue">口碑门店ID</label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="storeId" name="storeId" value="" placeholder="口碑用户请输入口碑门店ID"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="appAuthAppId"><span class="requiredValue">ISV绑定授权号:</span><span class="required">*</span></label>
+									<div class="col-xs-5" id="absoluteDiv">
+										<input type="text" class="form-control hidden" id="ISVId" name="ISVId" value="" />
+										<input type="text" class="form-control" id="appAuthAppId" name="appAuthAppId" value="" />
+										<div id="unwraps" style="display: none;">解绑</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label"><span class="requiredValue">支付宝授权二维码:</span><span class="required">*</span></label>
+									<div class="col-xs-5" style="margin:5px 0 0 0px;">
+										<div id="qrCode"></div>
+										<a id="qrCodeValue" href="#">网页授权入口</a>
+										<div id="getAliQR">点击获取ISV授权二维码</div>
+										<div id="getState" style="display: none;margin: 5px 0 0 30px;">点击查看绑定状态</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<form class="form-horizontal hidden" role="form" id="spdConfigForm">
+							<input type="text" class="form-control hidden" id="spdCustomerId" name="customerId" value=""/>
+		            		<input type="text" class="form-control hidden" id="spdId" name="id" value=""/>
+							<div class="form-group">								
+								<label class="col-xs-3 control-label" for="spdConfigName"><span class="requiredValue">配置名称:</span><span class="required">*</span></label>
+								<div class="col-xs-5">
+									<input type="text" class="form-control" id="spdConfigName" name="configName" value="" placeholder="请输入配置名称"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-xs-3 control-label"><span class="requiredValue">配置类型:</span><span class="required">*</span></label>
+								<div class="col-xs-5">
+										<input type="radio" checked="" name="type" id="spdType1" style="margin: 0 5px 0 0;" value="1" onchange="spdParentSwitch()"><label for="spdType1">服务商帐号</label>
+										<input type="radio" name="type" id="spdType2" style="margin: 13px 5px 0 20px;" value="2" onchange="spdChildSwitch()"><label for="spdType2">商户账号</label>
+								</div>
+							</div>
+							<span id="spdParent">
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="spdInscd"><span class="requiredValue">机构代码:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="spdInscd" name="inscd" value="" placeholder="请输入机构代码"/>
+									</div>
+								</div>								
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="spdTerminalId"><span class="requiredValue">终端号:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="spdTerminalId" name="terminalId" value="" placeholder="请输入终端号"/>
+									</div>
+								</div>
+							</span>
+							<span id="spdChild" class="hidden">
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="spdMerchantId"><span class="requiredValue">商户号:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="spdMerchantId" name="merchantId" value="" placeholder="请输入商户号"/>
+									</div>
+								</div>
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="spdbKey"><span class="requiredValue">秘钥:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="spdbKey" name="spdbKey" value="" placeholder="请输入秘钥"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label"><span class="requiredValue">主扫支付类型:</span><span class="required">*</span></label>
+									<div class="col-xs-9">
+										<span id="relation">						    		
+									    	<input type="radio" name="unifiedType" id="WXP" value="WXP" /><label for="WXP">微信</label>
+									    	<input type="radio" name="unifiedType" id="ALP" value="ALP" /><label for="ALP">支付宝</label>
+									    	<input type="radio" name="unifiedType" id="YZF" value="YZF" /><label for="YZF">翼支付</label>
+									    	<input type="radio" name="unifiedType" id="QQP" value="QQP" /><label for="QQP">qq钱包</label>
+									    	<input type="radio" name="unifiedType" id="JDP" value="JDP" /><label for="JDP">京东钱包</label>
+									    	<input type="radio" name="unifiedType" id="BDP" value="BDP" class="marginTop15"/><label for="BDP" class="marginTop12">百度钱包</label>
+									    	<input type="radio" name="unifiedType" id="YDP" value="YDP" class="marginTop15"/><label for="YDP" class="marginTop12">移动和包</label>
+									    	<input type="radio" name="unifiedType" id="YLP" value="YLP" class="marginTop15"/><label for="YLP" class="marginTop12">银联钱包</label>
+								    	</span>
+									</div>
+								</div>
+							</span>
+							<button class="saveBtn" id="saveSpdpayBtn">确认修改</button>
+							</form>
+							<form class="form-horizontal hidden" role="form" id="bfbConfigForm">
+								<input type="text" class="form-control hidden" id="bfbCustomerId" name="customerId" value=""/>
+			            		<input type="text" class="form-control hidden" id="bfbId" name="id" value=""/>
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="bfbConfigName"><span class="requiredValue">配置名称:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="bfbConfigName" name="configName" value="" placeholder="请输入配置名称"/>
+									</div>
+								</div>
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="bfbMerchantId"><span class="requiredValue">商户号:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="bfbMerchantId" name="merchantId" value="" placeholder="请输入商户号"/>
+									</div>
+								</div>
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="baifubaoKey"><span class="requiredValue">秘钥:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="baifubaoKey" name="baifubaoKey" value="" placeholder="请输入秘钥"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="timeExpress"><span class="requiredValue">订单有效时间(min):</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="timeExpress" name="timeExpress" value="" placeholder="请输入订单有效时间(min)"/>
+									</div>
+								</div>
+								<button class="saveBtn" id="saveBfbpayBtn">确认修改</button>
+							</form>
+							<form class="form-horizontal hidden" role="form" id="swiftConfigForm">
+								<input type="text" class="form-control hidden" id="swiftCustomerId" name="customerId" value=""/>
+			            		<input type="text" class="form-control hidden" id="swiftId" name="id" value=""/>
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="swiftConfigName"><span class="requiredValue">配置名称:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="swiftConfigName" name="configName" value="" placeholder="请输入配置名称"/>
+									</div>
+								</div>
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="swiftMerchantId"><span class="requiredValue">商户号:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="swiftMerchantId" name="merchantId" value="" placeholder="请输入商户号"/>
+									</div>
+								</div>
+								<div class="form-group">								
+									<label class="col-xs-3 control-label" for="swiftpassKey"><span class="requiredValue">秘钥:</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="swiftpassKey" name="swiftpassKey" value="" placeholder="请输入秘钥"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-3 control-label" for="swiftpastimeExpress"><span class="requiredValue">订单有效时间(min):</span><span class="required">*</span></label>
+									<div class="col-xs-5">
+										<input type="text" class="form-control" id="swiftpastimeExpress" name="timeExpress" value="" placeholder="请输入订单有效时间(min)"/>
+									</div>
+								</div>
+								<button class="saveBtn" id="saveSwiftpayBtn">确认修改</button>
+							</form>
+			            </span>
+			        </div>
+		    	</div>
+			</div>
+		</div>
+		<!--摸态框组件-->
+		<div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+		<div class="tooltiptop">
+			<div class="bg"></div>
+			<div class="main">
+				<span class="toolValue"></span>				
+				<span class="toolClose" onClick="ToolTipTop.Hide();" title="关闭"><i class="iconfont icon-guanbi"></i></span>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../common/js/jquery.qrcode.js" ></script>
+    <script type="text/javascript" src="../../common/js/qrcode.js" ></script> 
+    <script type="text/javascript" src="../../common/js/utf.js" ></script>
+	<script src="../common/js/common.js?v=17050901" type="text/javascript" charset="utf-8"></script>
+	<script src="js/customerConfig.js?v=17050901" type="text/javascript" charset="utf-8"></script>	
+</html>

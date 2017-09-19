@@ -1,0 +1,55 @@
+<div id="refoundDetailsContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">退款明细</a>
+			</div>
+		</div>
+	</div>
+	<!--中间部分内容-->
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">
+			<label id="customer_name" class="refoundSearchText" for="customerId">商户名称</label>	
+			<select class="specialselect" id="customerId" name="customerId"></select>
+			<label id="specilData" class="refoundSearchText">日期</label>
+			<div id="reportrange" class="pull-left dateRange">
+				<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+				<span id="searchDateRange"></span>
+				<b class="caret"></b>
+			</div>
+			<label class="refoundSearchText" for="queryDeviceId">设备编号</label>
+        	<input id="queryDeviceId" type="text" class="special">
+        	<label class="refoundSearchText" for="payType">支付方式</label>
+        	<select id="payType" class="specialselect">
+                <option value="0">全部订单</option>
+                <option value="1">微信支付</option>
+                <option value="2">支付宝支付</option>
+                <option value="11">威富通支付</option>
+                <option value="4">百度钱包支付</option>
+                <option value="3">浦发银行支付</option>
+            </select>
+        	<button class="searchBtn" id="querybtn" onclick="searchbillDetail(1);" >查询</button>			
+    	</div>
+		<div class="col-sm-12">
+            <div class="panel panel-default">
+                <table id="billDetailTable" class="table alignCenter" style="table-layout: fixed;">
+                    <thead class="theadStyle">
+	                    <tr>
+	                    	<th class="alignCenter" style="width: 120px;">退款时间</th>
+	                        <th class="alignCenter" style="width: 170px;">退款订单号</th>
+	                        <th class="alignCenter" style="width: 170px;">设备编号</th>
+	                        <th class="alignCenter" style="width: 190px;">商户名称</th>
+	                        <th class="alignCenter" style="width: 160px;">支付订单号</th>
+	                        <th style="width: 155px;padding-left: 30px;">退款明细</th>                                     
+	                    </tr>
+                    </thead>
+                    <tbody id="billDetailTbody"></tbody>
+                </table>
+            </div>
+            <div class="alignCenter">
+                <div id="pagination" class="pagination"></div>
+            </div>
+        </div>
+	</div>
+</div>
+			

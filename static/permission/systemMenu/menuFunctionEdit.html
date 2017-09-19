@@ -1,0 +1,165 @@
+<div id="menuFunctionAddContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#menuFunctionList">系统功能管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">新增系统功能</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backMenuFunction(0);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="addFunction" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addtopBarName"><span class="requiredValue">功能名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control hidden" id="addFunctionName" name="userId" placeholder="" />
+						<input type="text" class="form-control" id="addFunctionName" name="functionName" placeholder="请输入功能名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addFunctionCode"><span class="requiredValue">功能编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addFunctionCode" name="functionCode" placeholder="请输入功能编号" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="addsort"><span class="requiredValue">排序号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="addsort" name="sort" placeholder="请输入排序号" />
+                    </div>
+               	</div>
+               	<div class="form-group">
+					<label class="col-sm-3 control-label" for="addsort"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+					<div class="col-sm-5">
+						<input type="text" class="form-control" id="addDescription" name="description" placeholder="请输入描述" />
+					</div>
+				</div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" id="enableStatus0" value="0" style="margin-left: 25px;" ><label for="enableStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>
+<div id="menuFunctionEditContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#menuFunctionList">系统功能管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">系统功能修改</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backMenuFunction(1);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" id="editFunction" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editFunctionName"><span class="requiredValue">功能名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="text" class="form-control" id="editFunctionName" name="topBarName" placeholder="请输入功能名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editFunctionCodes"><span class="requiredValue">功能编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" disabled="" id="editFunctionCodes" name="functionCode" placeholder="" />
+						<input type="text" class="form-control hidden" id="editFunctionCode" name="functionCode" placeholder="" />
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editSort"><span class="requiredValue">排序号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="editSort" name="sort" placeholder="请输入排序号" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="editDescription"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="editDescription" name="description" placeholder="请输入描述" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="editStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="editStatus0">禁用</label>
+                    </div>
+                </div> 
+                <div class="form-group saveStyle">
+                    <div class="col-sm-offset-4 col-sm-8">
+                        <button type="submit" class="saveBtn">保存</button>                        
+                    </div>
+                </div>
+            </form>              
+    	</div>
+	</div>
+</div>
+<div id="menuFunctionDetailContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#menuFunctionList">系统功能管理</a>
+				<span class="space"></span>
+				<a href="javascript:void(0);">系统功能详情</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="backMenuFunction(1);">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 textEdit">
+            <form class="form-horizontal" role="form" style="align-content: center">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="functionNameDetails"><span class="requiredValue">功能名称:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="text" class="form-control" id="functionNameDetails" name="functionName" placeholder="请输入功能名称" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="functionCodeDetails"><span class="requiredValue">功能编号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+						<input type="text" disabled="" class="form-control" id="functionCodeDetails" name="functionCode" placeholder="" />
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="sortDetails"><span class="requiredValue">排序号:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="sortDetails" name="sort" placeholder="请输入排序号" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="descriptionDetails"><span class="requiredValue">描述:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="descriptionDetails" name="description" placeholder="请输入描述" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label"><span class="requiredValue">启用状态:</span><span class="required">*</span></label>
+                    <div class="col-sm-5">
+                    	<input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="editStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="editStatus0">禁用</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="createdTimeDetails">创建时间:</label>
+                    <div class="col-sm-5">
+                    	<input type="text" id="createdTimeDetails" class="form-control" value="createdTimeDetails" />
+                    </div>
+                </div>
+            </form>            
+    	</div>
+	</div>
+</div>

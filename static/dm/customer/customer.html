@@ -1,0 +1,41 @@
+<div id="customerContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">服务商列表</a>
+			</div>
+			<button class="btn btn-primary hidden" id="addbtn" onclick="addCustomerModal();">+&nbsp;添加服务商</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">
+			
+        	<label class="searchText" for="customerName">服务商名称</label><input id="customerName" type="text" class="special">
+        	<label class="searchText hidden" id="salesNameText" for="salesName">销售员</label>
+        	<select class="specialselect hidden" id="salesName" name="salesName"></select>        	
+        	<button class="searchBtn" id="querybtn" onclick="getCustomerList(1);">查询</button>
+ 		</div>	
+		<div class="col-sm-12">
+			<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+            <div class="panel panel-default">
+                <table id="customerTable" class="table alignCenter">
+                    <thead class="theadStyle">
+	                    <tr>
+	                        <th class="col-sm-3" style="padding-left: 20px;">服务商名称</th>
+	                        <th class="col-sm-1">联系人</th>
+	                        <th class="col-sm-2">电话</th>
+	                        <th class="col-sm-1">销售员</th>
+	                        <th class="col-sm-1" style="text-align: center;">状态</th>
+	                        <th class="col-sm-1" style="text-align: center;">是否测试</th>
+	                        <th class="col-sm-2" style="text-align: center;">操作</th>
+	                    </tr>
+                    </thead>
+                    <tbody id="spTbody"></tbody>
+                </table>
+        	</div>
+            <div class="alignCenter">
+                <div id="pagination" class="pagination"></div>
+            </div>
+        </div>
+	</div>
+</div>

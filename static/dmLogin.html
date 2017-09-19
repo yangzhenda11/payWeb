@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+		
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="common/images/logo.ico" rel="shortcut icon">
+		<link href="common/css/bootstrap-cerulean.css" rel="stylesheet">
+		<link href="common/css/charisma-app.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="common/css/bootstrapValidator.min.css"/>
+		<script src="common/js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/bootstrap.js"></script>
+		<script src="common/js/bootstrapValidator.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/js/base64.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+			}
+			
+			.container {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background-image: url(common/images/loginBG.jpg);
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-size: cover;
+				-webkit-background-size: cover;
+				/* 兼容Webkit内核浏览器如Chrome和Safari */
+				-o-background-size: cover;
+				/* 兼容Opera */
+				zoom: 1;
+			}
+			
+			.logo {
+				float: left;
+				margin: 4% 0 0 20%;
+				width: 120px;
+			}
+			
+			.title {
+				clear: both;
+				font-size: 28px;
+				color: #fff;
+				float: left;
+				position: absolute;
+				top: -96px;
+				left: 40px;
+			}
+			
+			.sideIn {
+				width: 240px;
+				text-align: center;
+				font-size: 20px;
+				margin: -20px 0 0 30px;
+			}
+			
+			#loginModel {
+				position: absolute;
+				margin: auto;
+				top: 30%;
+				right: 0;
+				left: 0;
+				height: 270px;
+				position: absolute;
+				width: 300px;
+				background-color: rgba(255, 251, 237, 0.95);
+				border-radius: 5px;
+			}
+			
+			#account,
+			#passwords {
+				position: relative;
+			}
+			
+			#accountImg,
+			#passwordImg {
+				position: absolute;
+				display: block;
+				width: 20px;
+				top: 8px;
+				left: 30px;
+			}
+			
+			#remember {
+				float: left;
+				margin-left: 40px;
+			}
+			
+			#rememberText {
+				float: left;
+				font-weight: normal;
+				margin-left: 8px;
+				-webkit-user-select: none;
+				font-family: "微软雅黑";
+			}
+			
+			.userLogin,
+			.dingLogin {
+				font-size: 20px;
+				position: relative;
+				top: -40px;
+				color: #fff;
+				cursor: pointer;
+			}
+			
+			.userLogin {
+				margin-left: 40px;
+			}
+			
+			.dingLogin {
+				left: 184px;
+				margin-top: -38px;
+			}
+			
+			#dingLogin {
+				display: none;
+				margin-left: -30px;
+				top: -40px;
+				position: relative;
+			}
+			
+			.modal-header {
+				height: 50px;
+				background: #f4f5f9;
+				border: none;
+			}
+			
+			.modal_title {
+				font-size: 16px;
+				color: #333333;
+				text-align: left;
+				font-family: "微软雅黑";
+			}
+			
+			.close {
+				font-size: 28px;
+				margin-top: -5px;
+			}
+			
+			.modal-footer {
+				border: none;
+				padding: 0;
+				height: 65px;
+				line-height: 65px;
+				background: #f4f5f9;
+				text-align: center;
+			}
+			
+			.close {
+				font-size: 30px;
+			}
+			
+			.backBtn {
+				text-align: center;
+				white-space: nowrap;
+				vertical-align: middle;				
+				user-select: none;
+				border: 1px solid transparent;
+				border-radius: 4px;
+				height: 32px;
+				background: #ccc;
+				color: #fff;
+				padding: 0;
+				line-height: 32px;
+				width: 100px;
+				font-size: 16px;
+			}
+			
+			.saveBtn {							
+				text-align: center;
+				white-space: nowrap;
+				vertical-align: middle;				
+				user-select: none;
+				border: 1px solid transparent;
+				border-radius: 4px;
+				height: 32px;
+				background: #44b549;
+				color: #fff;
+				padding: 0;
+				line-height: 32px;
+				width: 100px;
+				font-size: 16px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<img class="logo" src="common/images/loginPic.png?v=170116" />
+			<div id="loginModel">
+				<p class="title">派派小盒管理平台</p>
+				<p class="userLogin">用户登录</p>
+				<p class="dingLogin">钉钉登录</p>
+				<div id="userLogin">
+					<p class="sideIn">登录</p>
+					<form class="form-horizontal" role="form" style="align-content: center" id="loginForm">
+						<div class="form-group" style="margin-top: 20px;width: 270px;margin-left: 15px;">
+							<label class="sr-only control-label">用户名</label>
+							<div class="col-xs-12" id="account">
+								<input type="text" class="form-control" id="userName" name="user_name" placeholder="用户名" style="border: none;border-bottom:1px solid #9a9a9a;background: none;box-shadow: none;border-radius: 0;text-indent: 40px;">
+								<img src="common/images/person.png" id="accountImg" />
+							</div>
+						</div>
+						<div class="form-group" style="margin: 20px 0 10px 15px;width: 270px;">
+							<label class="sr-only control-label">密码</label>
+							<div class="col-xs-12" id="passwords">
+								<input type="password" class="form-control" id="password" name="password" placeholder="密码" style="border: none;border-bottom:1px solid #9a9a9a;background: none;box-shadow: none;border-radius: 0;text-indent: 40px;">
+								<img src="common/images/password.png" id="passwordImg" />
+							</div>
+						</div>
+						<input type="checkbox" name="remember" id="remember" value="" /><label for="remember" id="rememberText">记住密码</label>
+						<div class="form-group" style="float:left;margin-top: 8px;width: 270px;margin-left: 15px;">
+							<div class="col-xs-12">
+								<div class="btn btn-primary" id="login" style="width: 240px;background: #00c800;border: none;height: 40px;font-size: 16px;" onclick="signIns()">登<span style="display: inline-block;margin-left: 20px;">录</span></div>
+
+							</div>
+						</div>
+					</form>
+				</div>
+				<div id="dingLogin">
+
+				</div>
+			</div>
+		</div>
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog" id="aaa">
+				<form class="form-horizontal" id="addUserModal">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">×</button>
+							<span class="modal_title">钉钉登录新用户注册</span>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<div for="userAccount" class="col-sm-4 control-label">用户名称:</div>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" id="userAccount" name="userAccount">
+								</div>
+							</div>
+							<div class="form-group">
+								<div for="accountPsd" class="col-sm-4 control-label">请输入密码:</div>
+								<div class="col-sm-6">
+									<input type="password" class="form-control" id="accountPsd" name="accountPsd" placeholder="">
+								</div>
+							</div>
+							<div class="form-group">
+								<div for="cofirmPassword" class="col-sm-4 control-label">请再次输入密码:</div>
+								<div class="col-sm-6">
+									<input type="password" class="form-control" id="cofirmPassword" name="cofirmPassword" placeholder="">
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" class="saveBtn">确认</button>
+							<button class="backBtn" data-dismiss="modal" style="margin-left: 20px;">取消</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script src="https://g.alicdn.com/dingding/dinglogin/0.0.2/ddLogin.js"></script>
+	<script type="application/javascript" src="common/js/dmLogin.js?v=17050901"></script>
+
+</html>

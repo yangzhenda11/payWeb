@@ -1,0 +1,159 @@
+<div class="modal-dialog" id="addUser">
+    <div class="modal-content">
+        <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">添加用户</span>
+		</div>
+		<form action="/user/add" method="post" class="form-horizontal" role="form" id="addUserForm">
+        <div class="modal-body">           
+            <div class="form-group">
+                <div for="username" class="col-sm-4 control-label">用户名</div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
+                </div>
+            </div>
+            <div class="form-group">
+                <div for="password" class="col-sm-4 control-label">密码</div>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div for="password_repeat" class="col-sm-4 control-label">确认密码</div>
+                <div class="col-sm-6">
+                    <input type="password" class="form-control" id="password_repeat" name="passwordRepeat" placeholder="确认密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div for="role" class="col-sm-4 control-label">角色</div>
+                <div class="col-sm-6">
+                    <select class="form-control" id="role" name="roleId" ></select>
+                </div>
+            </div>
+            <!--<div class="form-group">
+                <div for="mobile" class="col-sm-4 control-label">电话</div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="电话">
+                </div>
+            </div>
+            <div class="form-group">
+                <div for="mail" class="col-sm-4 control-label">邮箱</div>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="mail" name="mail" placeholder="邮箱">
+                </div>
+            </div>-->
+            <div class="form-group">
+                <div for="customer_id" class="col-sm-4 control-label">所属商户</div>
+                <div class="col-sm-6">
+                    <select class="form-control" id="customer_id" name="customerId" ></select>
+                </div>
+            </div>
+            <input type="hidden" id="enable_status" name="enableStatus" value="1">          
+        </div>
+        <div class="modal-footer">
+			<button type="submit" class="saveBtn" >提交</button>
+            <button href="#" class="backBtn" data-dismiss="modal" style="margin-left: 20px;">取消</button>
+		</div>	
+		</form>
+    </div>
+</div>
+<div class="modal-dialog" id="editUser">
+    <div class="modal-content">
+        <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">编辑用户</span>
+		</div>
+		<form action="/user/add" method="post" class="form-horizontal" role="form" id="editUserForm">
+	        <div class="modal-body">           
+	            <div class="form-group">
+	                <div for="username" class="col-sm-4 control-label">用户名</div>
+	                <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="editUsername" name="username" placeholder="用户名">
+	                    <input type="text" class="form-control hidden" id="editId" name="id" placeholder="用户名">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <div for="password" class="col-sm-4 control-label">密码</div>
+	                <div class="col-sm-6">
+	                    <input type="password" class="form-control" id="editPassword" name="password" placeholder="密码">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <div for="password_repeat" class="col-sm-4 control-label">确认密码</div>
+	                <div class="col-sm-6">
+	                    <input type="password" class="form-control" id="editPasswordRepeat" name="passwordRepeat" placeholder="确认密码">
+	                </div>
+	            </div>
+	            <div class="form-group">
+	                <div for="role" class="col-sm-4 control-label">角色</div>
+	                <div class="col-sm-6">
+	                    <input type="text" disabled="" class="form-control" id="editRole" name="role" placeholder="">
+	                    <input type="text" class="form-control hidden" id="editRoleValue" name="role" placeholder="">
+	                    <input type="text" class="form-control hidden" id="editRoleId" name="roleId" placeholder="">
+	                </div>
+	            </div>	            
+	            <div class="form-group">
+	                <div for="customer_id" class="col-sm-4 control-label">所属商户</div>
+	                <div class="col-sm-6">
+	                	<input type="text" disabled="" class="form-control" id="editCustomerName" name="customerName" placeholder="">
+	                	<input type="text" class="form-control hidden" id="editCustomerNameValue" name="customerName" placeholder="">
+	                    <input type="text" class="form-control hidden" id="editCustomerId" name="customerId" placeholder="">
+	                </div>
+	            </div>
+	            <div class="form-group">
+					<div for="mail" class="col-sm-4 control-label">启用状态</div>
+					<div class="col-sm-6">
+						<input type="radio" name="enableStatus" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="enableStatus" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="enableStatus0">禁用</label>
+					</div>
+				</div>
+	        </div>
+	        <div class="modal-footer">
+				<button type="submit" class="saveBtn" >提交</button>
+	            <div class="backBtn" data-dismiss="modal" style="margin-left: 20px;">取消</div>
+			</div>	
+		</form>
+    </div>
+</div>
+
+<div class="modal-dialog" id="modalDetail">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">用户详情</span>
+		</div>
+		<div class="modal-body">
+			<table id='editSp' class="table-bordered table table-striped">
+				<tbody id="versionTBody">
+					<tr>
+						<td class="col-sm-1">用户名称</td>
+						<td class="col-sm-3" id="userNameDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">密码</td>
+						<td class="col-sm-1" id="passwordDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">角色</td>
+						<td class="col-sm-1" id="roleDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">所属商户</td>
+						<td class="col-sm-1" id="customerDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">用户状态</td>
+						<td class="col-sm-1" id="stausDetails"></td>
+					</tr>					
+					<tr>
+						<td class="col-sm-1">创建时间</td>
+						<td class="col-sm-1" id="createdTimeDetails"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="saveBtn" data-dismiss="modal">关闭</button>
+		</div>
+	</div>
+</div>

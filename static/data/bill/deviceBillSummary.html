@@ -1,0 +1,48 @@
+<div id="deviceBillContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#billSummary">账单汇总</a><span class="space"></span>
+        		<a href="javascript:void(0);">设备列表</a>
+			</div>
+			
+			<button class="btn btn-primary speBtn" id="backBill" onclick="backBill();">返回</button>
+		</div>
+	</div>
+	<!--中间部分内容-->
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">						       	
+        	<label id="queryDeviceIdBtn" for="queryDeviceId">设备编号</label>
+        	<input id="queryDeviceId" type="text" class="special">
+        	<label id="queryDeviceTypeBtn" for="queryDeviceType">设备类型</label>
+        	<select id="queryDeviceType" class="specialselect"></select>
+        	<label id="payTypeBtn" for="payType">支付方式</label>
+        	<div id="payTypeValue">						
+				<span id="payType"></span>
+				<ul id="payTypeItem"></ul>
+			</div>
+			<button class="searchBtn" id="querybtn" onclick="devicListBill(1);">查询</button>
+    	</div>
+    	<div class="col-xs-12" id="deviceBillSummary">
+			<div class="collectDiv">
+				<div class="collectValue" id="collectValue"></div>
+			</div>
+			<div class="tableDiv">
+				<div class="tableValue" id="tableValue">
+					<table>  
+						<thead>
+	                        <tr id="tableTitleTh"></tr>
+                      	</thead>                   	
+                        <tbody></tbody>
+                   </table>					
+				</div>
+			</div>
+            <div class="alignCenter">
+                <div id="pagination" class="pagination"></div>
+            </div>
+    	</div>
+    	<div class="col-xs-12 hide" id="billEmpty">
+			<img class="billImg" src="common/images/billEmpt.png"/>
+    	</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+#deviceConfigForm .wire {
+  float: left;
+  width: 5px;
+  height: 20px;
+  background: #44b549;
+  margin: 9px 5px 0 20px;
+}
+#deviceConfigForm p {
+  font-weight: bold;
+  display: inline-block;
+  line-height: 38px;
+}
+#deviceConfigForm .m_50 {
+  margin-top: 40px;
+  float: left;
+}
+#deviceConfigForm .m_25 {
+  margin: 17px 0 0 190px;
+  float: left;
+}
+#deviceConfigForm .subhead {
+  float: left;
+  line-height: 38px;
+  width: 130px;
+}
+#deviceConfigForm .subvalue {
+  float: left;
+  width: 260px;
+}
+#deviceConfigForm .col-xs-offset-1 {
+  margin-left: 20px;
+}
+#deviceConfigForm .form-group {
+  margin-bottom: 5px;
+}

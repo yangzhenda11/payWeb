@@ -1,0 +1,149 @@
+<div class="modal-dialog" id="modalAdd">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">添加字典</span>
+		</div>
+		<form action="/customer/add" method="post" class="form-horizontal" role="form" id="addDictionary">
+		<div class="modal-body">
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">字典名称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="dictionaryName" name="dictionaryName" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">字典编号:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="dictionaryCode" name="dictionaryCode" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">描述:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="description" name="description" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">角色名称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="radio" name="status" id="enableStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="enableStatus0" style="margin-left: 25px;" ><label for="enableStatus0">禁用</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label" style="padding-top: 0;">所属父级字典:</br><span style="color: red;">(默认为父级字典)</span></div>
+					<div class="col-sm-6">
+						<select class="form-control" id="addparentId" name="parentId">
+							
+						</select>
+					</div>
+				</div>
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="saveBtn">保存</button>
+			<button class="backBtn" data-dismiss="modal" style="margin-left: 20px;">取消</button>
+		</div>	
+		</form>
+	</div>
+	<!-- /.modal-content -->
+</div>
+
+<div class="modal-dialog" id="modalBody">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">编辑字典</span>
+		</div>
+		<form action="/customer/add" method="post" class="form-horizontal" role="form" id="editDictionary">
+		<div class="modal-body">
+				<input type="text" class="form-control hidden" id="editDictionaryId" name="id" placeholder="">
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">字典名称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editDictionaryName" name="dictionaryName" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="name" class="col-sm-4 control-label"><span class="requiredValue">字典编号:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editDictionaryCode" name="dictionaryCode" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">描述:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="editDescription" name="description" placeholder="">
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label"><span class="requiredValue">角色名称:</span><span class="required">*</span></div>
+					<div class="col-sm-6">
+						<input type="radio" name="status" id="editStatus1" value="1" style="margin-top: 12px;" checked="checked"><label for="enableStatus1">启用</label>
+						<input type="radio" name="status" value="0" id="editStatus0" style="margin-left: 25px;" ><label for="enableStatus0">禁用</label>
+					</div>
+				</div>
+				<div class="form-group">
+					<div for="mail" class="col-sm-4 control-label" style="padding-top: 0;">所属父级字典:</br><span style="color: red;">(默认为父级字典)</span></div>
+					<div class="col-sm-6">
+						<select class="form-control" id="editParentId" name="parentId">
+							
+						</select>
+					</div>
+				</div>
+		</div>
+		<div class="modal-footer">
+			<button type="submit" class="saveBtn">保存</button>
+			<button class="backBtn" data-dismiss="modal" style="margin-left: 20px;">取消</button>
+		</div>	
+		</form>
+	</div>
+	<!-- /.modal-content -->
+</div>
+
+
+<div class="modal-dialog" id="modalDetail">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">×</button>
+			<span class="modal_title">字典详情</span>
+		</div>
+		<div class="modal-body">
+			<table id='editSp' class="table-bordered table table-striped">
+				<tbody id="versionTBody">
+					<tr>
+						<td class="col-sm-1">字典名称</td>
+						<td class="col-sm-3" id="dictionaryNameDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">字典编号</td>
+						<td class="col-sm-1" id="dictionaryCodeDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">描述</td>
+						<td class="col-sm-1" id="descriptionDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">启用状态</td>
+						<td class="col-sm-1" id="statusDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">是否为父级字典</td>
+						<td class="col-sm-1" id="isParentDictionaryDetails"></td>
+					</tr>
+					<tr class="hidden" id="parentDictionaryTr">
+						<td class="col-sm-1">所属父级字典</td>
+						<td class="col-sm-1" id="parentDictionaryDetails"></td>
+					</tr>
+					<tr>
+						<td class="col-sm-1">创建时间</td>
+						<td class="col-sm-1" id="createdTimeDetails"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="saveBtn" data-dismiss="modal">关闭</button>
+		</div>
+	</div>
+</div>

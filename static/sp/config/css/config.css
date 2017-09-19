@@ -1,0 +1,136 @@
+#main .subhead {
+  float: left;
+  line-height: 38px;
+  width: 130px;
+}
+#main .subvalue {
+  float: left;
+  width: 260px;
+}
+#main #wxPayBtn {
+  float: left;
+  clear: both;
+  margin: 30px 0 30px 50px;
+}
+#main #aliPayBtn,
+#main #spdPayBtn,
+#main #bfbPayBtn,
+#main #swiftPayBtn {
+  float: left;
+  margin: 30px 0 30px 20px;
+}
+#main #wxpayConfigForm,
+#main #alipayConfigForm,
+#main #spdConfigForm,
+#main #bfbConfigForm,
+#main #swiftConfigForm {
+  clear: both;
+  margin-left: -40px;
+}
+#main #saveWXpay,
+#main #saveAlipayBtn,
+#main #saveSpdpayBtn,
+#main #saveBfbpayBtn,
+#main #saveSwiftpayBtn {
+  margin: 20px 0 0 300px;
+}
+#main #relation {
+  margin-top: 8px;
+  display: block;
+}
+#main #relation label {
+  float: left;
+  margin-right: 20px;
+}
+#main #relation input[type='radio'] {
+  float: left;
+}
+#main #relation #BDP {
+  clear: both;
+}
+#main #relation .marginTop12 {
+  margin-top: 12px ;
+}
+#main #relation .marginTop15 {
+  margin-top: 15px ;
+}
+#emptyDiv p {
+  float: left;
+  margin: 50px 0 0 150px;
+}
+#emptyDiv a {
+  float: left;
+  margin: 58px 0 0 15px;
+}
+#getAliQR {
+  color: #fff;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+  background: #44b549;
+  border: 1px solid #44b549;
+  width: 190px;
+  text-align: center;
+  cursor: pointer;
+}
+#getState {
+  color: #fff;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 4px;
+  background: #44b549;
+  border: 1px solid #44b549;
+  width: 190px;
+  text-align: center;
+  cursor: pointer;
+}
+#unwraps {
+  color: #fff;
+  height: 38px;
+  line-height: 38px;
+  border-radius: 4px;
+  background: #44b549;
+  border: 1px solid #44b549;
+  width: 70px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+#absoluteDiv {
+  position: relative;
+}
+#qrCodeValue {
+  width: 100px;
+  margin: 0 0 0 85px;
+}
+#appAuthAppId {
+  padding-right: 75px;
+}
+#customerSelect input[type='radio'],
+#customerSelect label {
+  float: left;
+}
+#customerSelect .straightLable {
+  margin: 40px 0 0 5px;
+  font-size: 16px;
+}
+#customerSelect .straightInput {
+  margin: 45px 0 0 70px;
+}
+#customerSelect .relationLable {
+  font-size: 16px;
+  margin: 40px 0 0 5px;
+}
+#customerSelect #pufaGallery {
+  margin: 45px 0 0 30px;
+}
+#customerSelect #swiftGallery {
+  margin: 45px 0 0 30px;
+}
+#customerSelect .relationVaule,
+#customerSelect .straightVaule {
+  margin-left: 3px;
+  font-size: 14px;
+}

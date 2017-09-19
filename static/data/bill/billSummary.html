@@ -1,0 +1,69 @@
+<div id="billSummaryContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">账单汇总</a>
+			</div>							
+		</div>
+	</div>
+	<!--中间部分内容-->
+	<div class="row" style="width: 100%;">						
+		<div class="col-xs-12 titleStyle">			
+			<label id="cusName">商户名称
+				<!--<div id="customerDiv"></div>-->
+			</label>
+			<select class="specialselect" id="cusId" name="customerId"></select>
+			<label for="summaryType">汇总方式</label>
+			<select id="summaryType" class="specialselect">
+               <option value="D">按天汇总</option>
+               <option value="M">按月汇总</option>               
+            </select>
+            <label for="reportrange">日期</label>
+            <div id="reportrange" class="dateRange pull-left" style="border-radius: 4px;">
+				<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+				<span id="searchDateRange"></span>
+				<b class="caret"></b>
+			</div>
+			<label for="payType">支付方式</label>
+			<div id="payTypeValue">						
+				<span id="payType"></span>
+				<ul id="payTypeItem">
+					<li><label><input type="checkbox" id="checkAll" value="0" />全部</label></li>
+					<li><label><input type="checkbox" name="payItem" value="1" checked=""/>微信</label></li>
+					<li><label><input type="checkbox" name="payItem" value="2" checked=""/>支付宝</label></li>
+					<li><label><input type="checkbox" name="payItem" value="11" checked=""/>威富通</label></li>
+					<li><label><input type="checkbox" name="payItem" value="4" checked=""/>百度钱包</label></li>
+					<li><label><input type="checkbox" name="payItem" value="3" checked=""/>浦发银行</label></li>
+				</ul>
+			</div>
+			<button class="searchBtn" id="querybtn">查询</button> 
+			<label id="queryDeviceIdBtn" for="queryDeviceId">设备编号</label>
+			<input id="queryDeviceId" type="text" class="special">
+    	</div>
+		<div class="col-xs-12 hide" id="billSummary">
+			<div class="collectDiv">
+				<div class="collectValue" id="collectValue"></div>
+			</div>
+			<div class="tableDiv">
+				<div class="tableValue" id="tableValue">
+					<table>  
+						<thead>
+	                        <tr id="tableTitleTh"></tr>
+                      	</thead>                   	
+                        <tbody></tbody>
+                   </table>					
+				</div>
+			</div>                  
+            <div id="export" class="hidden" style="text-align: right;margin-top: 10px;">
+            	<a href="javascript:void(0)">点击导出excel表格</a>
+            </div>
+            <div class="alignCenter">
+                <div id="pagination" class="pagination"></div>
+            </div>
+    	</div>
+    	<div class="col-xs-12 hide" id="billEmpty">
+			<img class="billImg" src="common/images/billEmpt.png"/>
+    	</div>
+	</div>
+</div>
+

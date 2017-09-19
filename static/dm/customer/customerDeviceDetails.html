@@ -1,0 +1,51 @@
+<div id="customerDeviceDetailsContainer">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="index.html#customer">服务商列表</a><span class="space"></span>
+        		<a href="index.html#customerDeviceList">服务商设备列表</a><span class="space"></span>
+        		<a href="javascript:void(0);">设备详情</a>
+			</div>
+			<button class="btn btn-primary speBtn" onclick="gocustomerDeviceList();">返回</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12" style="margin-top: 20px;">
+			<div class="panel panel-default">
+				<div class="panel-heading"><b>设备版本</b></div>
+				<div class="panel-body" id="detailDeviceId" style="margin-left: 10px;"></div>
+				<div class="panel-body">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<td class="col-sm-1">App</td>
+								<td class="col-sm-1">版本</td>
+							</tr>
+						</thead>
+						<tbody id="versionTBody">
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="panel panel-default">
+				<div class="panel-heading"><b>设备连接历史列表</b></div>
+				<div class="panel-body">
+					<table id="devicesTable" class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<td class="col-sm-1">连接时间</td>
+								<td class="col-sm-1">断开连接时间</td>
+							</tr>
+						</thead>
+						<tbody id="historyTbody">
+						</tbody>
+					</table>
+					<div class="alignCenter">
+						<div id="pagination" class="pagination"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

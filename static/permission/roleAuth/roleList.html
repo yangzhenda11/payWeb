@@ -1,0 +1,37 @@
+<div id="roleListContainer" style="padding-bottom: 20px;">
+	<div class="row navbars">
+		<div id="upgradeMenu" class="col-xs-12">
+			<div class="navbars_nav">
+				<a href="javascript:void(0);">系统角色管理</a>
+			</div>
+			<button class="btn btn-primary hidden" id="addbtn" onclick="addRoleModal();">+&nbsp;添加角色</button>
+		</div>
+	</div>
+	<div class="row" style="width: 100%;">
+		<div class="col-sm-12 titleStyle">
+        	<label class="searchText" for="roleName">角色名称</label><input id="roleName" type="text" class="special">
+        	<button class="searchBtn" id="querybtn" onclick="getRoleList(1);" >查询</button>
+		</div>	
+		<div class="col-sm-12">
+			<div class="collect">该查询条件下，共<span class="fontbold">0</span>条记录。</div>
+            <div class="panel panel-default">
+                <table id="roleListTable" class="table alignCenter">
+                    <thead class="theadStyle">
+                        <tr>
+                        	<th class="col-sm-1" style="text-align: center;">编号</th>
+                            <th class="col-sm-3">角色名称</th>                                   
+                            <th class="col-sm-2">角色类型</th>
+                            <th class="col-sm-3">描述</th>
+                            <th class="col-sm-2">启用状态</th>
+                            <th class="col-sm-3" style="text-align: center;">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dictionaryTbody"></tbody>
+                </table>		                            
+            </div>
+            <div class="alignCenter">
+                <div id="pagination" class="pagination"></div>
+            </div>
+		</div>
+	</div>
+</div>
